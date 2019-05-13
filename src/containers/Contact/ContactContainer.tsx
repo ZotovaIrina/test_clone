@@ -1,18 +1,22 @@
-// import React from 'react';
 import ContactMe from './ContactMe';
-import {IStore} from '../../store/Store';
+import store, {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
-
-// const ContactContainer: React.FunctionComponent<{}> = props => {
-// console.log(props);
-//   return (
-//     <ContactMe/>
-//   )
-// };
+import {withRouter} from 'react-router';
+import {editNameAction} from '../../store/contactForm/contactFormActions';
 
 const mapStateToProps = (state: IStore) => ({
   form: state.contactForm
 });
 
+const mapDispatchToProps = () => ({
+  onChange: (value: string | null) => store.dispatch(editNameAction(value))
+});
 
-export default connect(mapStateToProps)(ContactMe);
+const ContactContainer = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ContactMe) as any
+);
+
+export default ContactContainer;

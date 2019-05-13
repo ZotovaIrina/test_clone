@@ -5,12 +5,10 @@ import ContactInformation from '../../types/ContactInformation';
 
 interface IContactFormProps {
   data: ContactInformation
+  onChange: (newValue: string | null) => void
 }
 
 const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
-  const onChange = (newValue: string | null) => {
-    console.log(newValue);
-  };
 
   return (
     <>
@@ -18,19 +16,19 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
         label={'Name'}
         isRequired={true}
         inputValue={props.data.name}
-        onChange={onChange}/>
+        onChange={props.onChange}/>
       <TextInput
         label={'Company'}
         inputValue={props.data.companyName}
-        onChange={onChange}/>
+        onChange={props.onChange}/>
       <TextInput
         label={'Email'}
         inputValue={props.data.email}
-        onChange={onChange}/>
+        onChange={props.onChange}/>
       <AreaInput
         label={'Message'}
         inputValue={props.data.message}
-        onChange={onChange}/>
+        onChange={props.onChange}/>
     </>
   )
 };
