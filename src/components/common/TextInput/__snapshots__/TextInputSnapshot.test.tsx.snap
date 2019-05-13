@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly required input with label and error message 1`] = `
+<div
+  className="form-cell form-cell--error"
+>
+  <span
+    className="form-cell__label"
+  >
+    label *
+  </span>
+  <input
+    className="faux-input"
+    onChange={[Function]}
+    placeholder=""
+    type="text"
+    value="input value"
+  />
+  <span
+    className="form-cell__error"
+  >
+    Error text
+  </span>
+</div>
+`;
+
+exports[`renders correctly text input without label and error message 1`] = `
+<div
+  className="form-cell"
+>
+  <input
+    className="faux-input"
+    onChange={[Function]}
+    placeholder=""
+    type="text"
+    value="input value"
+  />
+</div>
+`;
