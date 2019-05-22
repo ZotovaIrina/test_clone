@@ -4,7 +4,7 @@ import ContactForm from '../../components/contactMe/contactForm';
 
 interface IContactMeProps {
   form: ContactInformation,
-  onChange: (newValue: string | null) => void
+  onChange: (newValue: object) => void
 }
 
 const ContactMe: React.FunctionComponent<IContactMeProps> = props => {

@@ -6,11 +6,8 @@ import ContactContainer from './containers/Contact/ContactContainer';
 import ProjectsContainer from './containers/Progects/ProjectsContainer';
 import {Provider} from 'react-redux';
 import store from './store/Store';
-import {editNameAction} from './store/contactForm/contactFormActions';
 
 const App: React.FC = () => {
-
-  store.dispatch(editNameAction('Irina'));
   return (
     <Provider store={store}>
       <Router history={H.createBrowserHistory()}>

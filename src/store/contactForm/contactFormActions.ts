@@ -1,20 +1,12 @@
 import {IAction} from '../../types/Action';
 
 export enum ContactFormActions {
-  EDIT_NAME = 'EDIT_NAME',
-  EDIT_EMAIL = 'EDIT_EMAIL'
+  EDIT_VALUE = 'EDIT_VALUE'
 }
 
-export function editNameAction(value: string | null): IAction {
+export function editValueAction(value: object): IAction {
   return {
-    type: ContactFormActions.EDIT_NAME,
-    payload: value
-  }
-}
-
-export function editEmailAction(value: string | null): IAction {
-  return {
-    type: ContactFormActions.EDIT_EMAIL,
+    type: ContactFormActions.EDIT_VALUE,
     payload: value
   }
 }
