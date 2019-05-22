@@ -1,15 +1,16 @@
 import ContactMe from './ContactMe';
-import store, {IStore} from '../../store/Store';
+import {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-import {editValueAction} from '../../store/contactForm/contactFormActions';
+import {updateContactMeForm} from '../../store/contactForm/contactFormMiddleware';
 
 const mapStateToProps = (state: IStore) => ({
-  form: state.contactForm
+  form: state.contactForm.formData,
+  formError: state.contactForm.formError
 });
 
 const mapDispatchToProps = () => ({
-  onChange: (value: object) => store.dispatch(editValueAction(value))
+  onChange: updateContactMeForm
 });
 
 const ContactContainer = withRouter(

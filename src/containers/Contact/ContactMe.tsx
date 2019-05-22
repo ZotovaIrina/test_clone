@@ -3,8 +3,9 @@ import ContactInformation from '../../types/ContactInformation';
 import ContactForm from '../../components/contactMe/contactForm';
 
 interface IContactMeProps {
-  form: ContactInformation,
-  onChange: (newValue: object) => void
+  form: ContactInformation;
+  formError: object;
+  onChange: (newValue: object) => void;
 }
 
 const ContactMe: React.FunctionComponent<IContactMeProps> = props => {
@@ -13,6 +14,7 @@ const ContactMe: React.FunctionComponent<IContactMeProps> = props => {
       <h1>Contact Me</h1>
       <ContactForm
         data={props.form}
+        errors={props.formError}
         onChange={props.onChange}
       />
     </>

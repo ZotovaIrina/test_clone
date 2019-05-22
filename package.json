@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/redux-thunk": "^2.1.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "7.0.3",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-scripts": "3.0.1",
-    "redux": "4.0.1"
+    "redux": "4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +44,7 @@
     "@types/react-router": "4.4.5",
     "@types/react-router-dom": "4.3.3",
     "@types/redux": "3.6.0",
+    "@types/redux-logger": "^3.0.7",
     "typescript": "3.4.5"
   }
 }

@@ -1,19 +1,26 @@
-import {combineReducers, createStore} from 'redux';
-import ContactFormStore from './contactForm/contactFormStore';
-import ContactInformation from '../types/ContactInformation';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
+import ContactFormStore, {IContactMeStore} from './contactForm/contactFormStore';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 export interface IStore {
-  contactForm: ContactInformation
+  contactForm: IContactMeStore
 }
 
 const reducer = combineReducers({
   contactForm: ContactFormStore
 });
 
-const store = createStore(reducer);
+const errorLog = (store: any) => (next: any) => (action: any) => {
+  try {
+    next(action)
+  } catch (e) {
+    console.error(e);
+  }
+};
 
-store.subscribe(() => {
-  console.log('change', store.getState());
-});
+const middleware = applyMiddleware(thunk, logger, errorLog);
+
+const store = createStore(reducer, {}, middleware);
 
 export default store;

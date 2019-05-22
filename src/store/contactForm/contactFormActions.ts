@@ -1,12 +1,20 @@
 import {IAction} from '../../types/Action';
 
 export enum ContactFormActions {
-  EDIT_VALUE = 'EDIT_VALUE'
+  editValue = 'Edit Value',
+  editError = 'Edit Error'
 }
 
 export function editValueAction(value: object): IAction {
   return {
-    type: ContactFormActions.EDIT_VALUE,
+    type: ContactFormActions.editValue,
+    payload: value
+  }
+}
+
+export function editErrorAction(value: object): IAction {
+  return {
+    type: ContactFormActions.editError,
     payload: value
   }
 }
