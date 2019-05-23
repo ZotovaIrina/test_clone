@@ -13,7 +13,7 @@ describe('AreaInput', () => {
    * enzyme.mount(..., {attachTo}) and attachHookableNode(...)
    * to ensure full DOM structure and React lifecycle avalability.
    * This will execute as mutch as possible from component
-   * lifecycle which will force errors to surface.
+   * lifecycle which will force formError to surface.
    *
    * Not using enzyme.shallow by purpouse on components.
    * Would use it for views consisted of multiple compoments

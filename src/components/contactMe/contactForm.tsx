@@ -3,41 +3,42 @@ import TextInput from '../common/TextInput/TextInput';
 import AreaInput from '../common/AreaInput/AreaInput';
 import ContactInformation from '../../types/ContactInformation';
 
-interface IContactFormProps {
-  data: ContactInformation;
-  errors: object;
-  onChange: (newValue: object) => void;
+export interface IContactFormProps {
+  formData: ContactInformation;
+  formError: object;
+  onChange: (property: string, newValue: any) => void;
 }
 
 const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
 
   const onFormChange = (property: string, value: string | null) => {
-    props.onChange(
-      {[property]: value}
-      )
+    props.onChange(property, value);
   };
   return (
     <>
       <TextInput
         label={'Name'}
         isRequired={true}
-        inputValue={props.data.name}
-        errorText={props.errors['name']}
+        inputValue={props.formData.name}
+        errorText={props.formError['name']}
         onChange={value => onFormChange('name', value)}/>
       <TextInput
         label={'Company'}
-        inputValue={props.data.companyName}
-        errorText={props.errors['companyName']}
+        isRequired={true}
+        inputValue={props.formData.companyName}
+        errorText={props.formError['companyName']}
         onChange={value => onFormChange('companyName', value)}/>
       <TextInput
         label={'Email'}
-        inputValue={props.data.email}
-        errorText={props.errors['email']}
+        isRequired={true}
+        inputValue={props.formData.email}
+        errorText={props.formError['email']}
         onChange={value => onFormChange('email', value)}/>
       <AreaInput
         label={'Message'}
-        inputValue={props.data.message}
-        errorText={props.errors['message']}
+        isRequired={true}
+        inputValue={props.formData.message}
+        errorText={props.formError['message']}
         onChange={value => onFormChange('message', value)}/>
     </>
   )

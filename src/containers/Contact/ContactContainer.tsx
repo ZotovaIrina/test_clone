@@ -5,7 +5,7 @@ import {withRouter} from 'react-router';
 import {updateContactMeForm} from '../../store/contactForm/contactFormMiddleware';
 
 const mapStateToProps = (state: IStore) => ({
-  form: state.contactForm.formData,
+  formData: state.contactForm.formData,
   formError: state.contactForm.formError
 });
 
