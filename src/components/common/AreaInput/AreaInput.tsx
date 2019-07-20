@@ -70,7 +70,7 @@ export default class AreaInput extends React.Component<IAreaInputProps, IAreaInp
 
   public render() {
     return (
-      <FormCell className={this.props.className} errorText={this.props.errorText} isRequired={this.props.isRequired} label={this.props.label}>
+      <FormCell errorText={this.props.errorText} isRequired={this.props.isRequired} label={this.props.label}>
         <textarea
           className="faux-text-area"
           onBlur={this.props.onBlur}

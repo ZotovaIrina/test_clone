@@ -10,8 +10,6 @@ export interface ITextInputProps {
   autoFocus?: boolean;
   /** Highlights the input as a required field (does also perform additional validation). */
   isRequired?: boolean;
-  /** Additional form CSS class. */
-  className?: string;
   /** This label appears above the input. */
   label?: string;
   /** Text that will appear in an empty input. */
@@ -66,7 +64,6 @@ export default class TextInput extends React.Component<ITextInputProps, ITextInp
     return (
       <FormCell
         label={this.props.label}
-        className={this.props.className}
         isRequired={this.props.isRequired}
         errorText={this.props.errorText}
       >

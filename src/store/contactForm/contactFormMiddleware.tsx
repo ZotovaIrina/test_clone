@@ -2,13 +2,13 @@ import store from '../Store';
 import {editErrorAction, editValueAction} from './contactFormActions';
 import {ThunkDispatch} from 'redux-thunk';
 import {AnyAction, Store} from 'redux';
-import validator from '../../utils/validator/validator';
+import validator, {ValidationType} from '../../utils/validator/validator';
 
-export const updateContactMeForm = (property: string, value: any) => {
+export const updateContactMeForm = (property: string, propertyType: ValidationType, value: any) => {
   const errorMessage = validator(
     value,
     {
-      validationType: 'string',
+      validationType: propertyType,
       required: true,
       label: property
     }

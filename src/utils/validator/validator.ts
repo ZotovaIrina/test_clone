@@ -7,11 +7,11 @@ export interface IValidatorMessages {
   invalidMessage?: string;
 }
 
-enum ValidationType {
+export enum ValidationType {
   number = 'number',
   string = 'string',
-  boolean = 'boolean',
-  date = 'date'
+  date = 'date',
+  phone = 'phone'
 }
 
 export interface IValidatorConfig {
@@ -45,21 +45,26 @@ export default function validator(value: any, config: IValidatorConfig): IValida
       case ValidationType.number:
         isValid = validateType(value, 'number');
         break;
-      case ValidationType.boolean:
-        isValid = validateType(value, 'boolean');
+      case ValidationType.phone:
+        isValid = validateType(value, 'number') && value.toString().length === 10;
+        console.log(isValid, value.toString().length, validateType(value, 'number'));
+        if ((value === null || value === undefined) && config.required) {
+          isValid = false;
+          invalidMessage = generateValidationMessage('required', config.label);
+        }
         break;
       case ValidationType.string:
         isValid = validateType(value, 'string');
         if (isValid && config.required) {
           isValid = value.toString() !== '';
-          if(!isValid) {
+          if (!isValid) {
             invalidMessage = generateValidationMessage('required', config.label);
           }
         }
         break;
       case ValidationType.date:
         isValid = value instanceof Date && !isNaN(value.getTime());
-        if(!isValid) {
+        if (!isValid) {
           invalidMessage = generateValidationMessage('date', config.label);
         }
     }
