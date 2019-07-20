@@ -1,26 +1,12 @@
 import * as React from 'react';
-import FormCell from '../FormCell/FormCell';
+import FormCell, {IFormCell} from '../FormCell/FormCell';
 
 export interface ITextInputProps {
-  /** The value attribute of input. */
+  formCell: IFormCell;
   inputValue: string | null;
-  /** Message to display when the input is in an error state. When this is present, also visually highlights the component as in error. */
-  errorText?: string | null;
-  /** Specifies is the textarea should automatically get focus. It also works after initializing the component using the imperative approach 'false -> true'. */
   autoFocus?: boolean;
-  /** Highlights the input as a required field (does also perform additional validation). */
-  isRequired?: boolean;
-  /** This label appears above the input. */
-  label?: string;
-  /** Text that will appear in an empty input. */
-  placeHolder?: string;
-  /** A callback triggered when focus is removed. */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** A callback fired when the value prop changes. */
-  onChange: (option: string | null, error?: string | null) => void;
-  /** Switches the input to read only which prevents editing the contents. */
-  readOnly?: boolean;
-  /** This callback exposes the input reference / DOM node to parent components. */
+  onChange: (option: string | null) => void;
   getInputRef?: (elem: HTMLInputElement) => void;
 }
 
@@ -33,10 +19,7 @@ interface ITextInputState {
  */
 export default class TextInput extends React.Component<ITextInputProps, ITextInputState> {
   public static defaultProps: Partial<ITextInputProps> = {
-    errorText: null,
     inputValue: null,
-    isRequired: false,
-    placeHolder: ''
   };
 
   public readonly state: ITextInputState = {
@@ -62,19 +45,14 @@ export default class TextInput extends React.Component<ITextInputProps, ITextInp
 
   public render() {
     return (
-      <FormCell
-        label={this.props.label}
-        isRequired={this.props.isRequired}
-        errorText={this.props.errorText}
-      >
+      <FormCell {...this.props.formCell}>
         <input
-          className={'faux-input'}
           type={'text'}
           ref={this.getInputRef}
           onChange={this.onChange}
           onBlur={this.props.onBlur}
-          placeholder={this.props.placeHolder}
-          readOnly={this.props.readOnly}
+          placeholder={this.props.formCell.placeHolder}
+          readOnly={this.props.formCell.disabled}
           value={this.state.inputValue}
         />
       </FormCell>
@@ -90,8 +68,7 @@ export default class TextInput extends React.Component<ITextInputProps, ITextInp
 
   private onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value === '' ? null : e.target.value;
-    const error = this.props.isRequired && value === null ? `${this.props.label} cannot be blank` : null;
-    this.props.onChange(value, error);
+    this.props.onChange(value);
     this.setState({
       inputValue: e.target.value
     });

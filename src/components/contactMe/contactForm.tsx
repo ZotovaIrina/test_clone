@@ -3,56 +3,64 @@ import TextInput from '../common/TextInput/TextInput';
 import AreaInput from '../common/AreaInput/AreaInput';
 import ContactInformation from '../../types/ContactInformation';
 import PhoneInput from '../common/PhoneInput/PhoneInput';
-import {ValidationType} from '../../utils/validator/validator';
+import {ValidationType} from '../../utils/validation/validator/validator';
+import Button from '../common/Button/Button.styles';
+import IContactMe from '../../configs/formConfigs/contactMe';
 
 export interface IContactFormProps {
   formData: ContactInformation;
   formError: object;
-  onChange: (property: string, propertyType: ValidationType, newValue: any) => void;
+  config: IContactMe,
+  onChange: (property: string, newValue: any, propertyType?: ValidationType) => void;
 }
 
 const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
 
-  const onFormChange = (property: string, propertyType: ValidationType, value: any | null) => {
-    props.onChange(property, propertyType, value);
+  const onFormChange = (property: string, value: any | null, propertyType?: ValidationType) => {
+    props.onChange(property, value, propertyType);
   };
   return (
-    <>
+    <form>
       <TextInput
-        label={'Name'}
-        isRequired={true}
-        inputValue={props.formData.name}
-        errorText={props.formError['name']}
-        onChange={value => onFormChange('name', ValidationType.string, value)}/>
+        formCell={{
+          ...props.config.name.formCell,
+          errorText: props.formError[props.config.name.value]
+        }}
+        inputValue={props.formData[props.config.name.value]}
+        onChange={value => onFormChange(props.config.name.value, value)}/>
       <TextInput
-        label={'Company'}
-        isRequired={true}
-        inputValue={props.formData.companyName}
-        errorText={props.formError['companyName']}
-        onChange={value => onFormChange('companyName', ValidationType.string, value)}/>
+        formCell={{
+          ...props.config.companyName.formCell,
+          errorText: props.formError[props.config.companyName.value]
+        }}
+        inputValue={props.formData[props.config.companyName.value]}
+        onChange={value => onFormChange(props.config.companyName.value, value)}/>
       <PhoneInput
         formCell={
           {
-            label: 'Phone',
-            errorText: props.formError['phone']
+            ...props.config.phone.formCell,
+            errorText: props.formError[props.config.phone.value]
           }
         }
-        onChange={value => onFormChange('phone', ValidationType.number, value)}
-        onBlur={(event, value) => onFormChange('phone', ValidationType.phone, value)}
-        inputValue={props.formData.phone}/>
+        onChange={value => onFormChange(props.config.phone.value, value, ValidationType.number)}
+        onBlur={(event, value) => onFormChange(props.config.phone.value, value)}
+        inputValue={props.formData[props.config.phone.value]}/>
       <TextInput
-        label={'Email'}
-        isRequired={true}
-        inputValue={props.formData.email}
-        errorText={props.formError['email']}
-        onChange={value => onFormChange('email', ValidationType.string, value)}/>
+        formCell={{
+          ...props.config.email.formCell,
+          errorText: props.formError[props.config.email.value]
+        }}
+        inputValue={props.formData[props.config.email.value]}
+        onChange={value => onFormChange(props.config.email.value, value)}/>
       <AreaInput
-        label={'Message'}
-        isRequired={true}
-        inputValue={props.formData.message}
-        errorText={props.formError['message']}
-        onChange={value => onFormChange('message', ValidationType.string, value)}/>
-    </>
+        formCell={{
+          ...props.config.message.formCell,
+          errorText: props.formError[props.config.message.value]
+        }}
+        inputValue={props.formData[props.config.message.value]}
+        onChange={value => onFormChange(props.config.message.value, value)}/>
+      <Button>Submit</Button>
+    </form>
   )
 };
 

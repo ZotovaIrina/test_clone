@@ -1,5 +1,5 @@
-import capitalize from '../capitalize';
-import {isNullOrUndefined} from '../isNullOrUndefined';
+import capitalize from '../../capitalize';
+import {isNullOrUndefined} from '../../isNullOrUndefined';
 import {ValidationMessage} from './ValidationMessage';
 
 export default function generateValidationMessage(msgKey: keyof typeof ValidationMessage, label?: string, additionalValue?: any): string {

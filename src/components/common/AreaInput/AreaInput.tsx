@@ -3,23 +3,12 @@ import * as React from 'react';
 import FormCell, { IFormCell } from '../FormCell/FormCell';
 
 export interface IAreaInputProps extends IFormCell {
-  /** Specifies is the textarea should automatically get focus. It also works after initializing the component using the imperative approach 'false -> true'. */
+  formCell: IFormCell;
   autoFocus?: boolean;
-  /** The value attribute of underlying textarea. */
   inputValue: string | null;
-  /** A callback triggered when focus is removed. */
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
-  /** A callback fired when the value prop changes. */
-  onChange?: (newValue: string | null, error?: string | null) => void;
-  /** Text that will appear in an empty input. */
-  placeHolder?: string;
-  /** Specifies the visible number of lines in underlying textarea. */
+  onChange?: (newValue: string | null) => void;
   rows?: number;
-  /** Visually highlights the component as in error. */
-  showErrors?: boolean;
-  /** Switches the input to read only which prevents editing the contents. */
-  readOnly?: boolean;
-  /** This callback exposes the input reference / DOM node to parent components. */
   getInputRef?: (elem: HTMLTextAreaElement) => void;
 }
 
@@ -32,8 +21,7 @@ interface IAreaInputState {
  */
 export default class AreaInput extends React.Component<IAreaInputProps, IAreaInputState> {
   public static defaultProps: Partial<IAreaInputProps> = {
-    inputValue: '',
-    showErrors: true
+    inputValue: ''
   };
 
   public static propTypes = {
@@ -70,13 +58,13 @@ export default class AreaInput extends React.Component<IAreaInputProps, IAreaInp
 
   public render() {
     return (
-      <FormCell errorText={this.props.errorText} isRequired={this.props.isRequired} label={this.props.label}>
+      <FormCell {...this.props.formCell}>
         <textarea
           className="faux-text-area"
           onBlur={this.props.onBlur}
           onChange={this.onChange}
-          placeholder={this.props.placeHolder}
-          readOnly={this.props.readOnly}
+          placeholder={this.props.formCell.placeHolder}
+          readOnly={this.props.formCell.disabled}
           ref={this.getInputRef}
           rows={this.props.rows}
           value={this.state.value}
@@ -93,15 +81,11 @@ export default class AreaInput extends React.Component<IAreaInputProps, IAreaInp
   };
 
   public onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    let errorMessage: string | null = null;
-    if (this.props.isRequired && !e.target.value && this.props.showErrors) {
-      errorMessage = `${this.props.label} cannot be blank`;
-    }
     this.setState({
       value: e.target.value
     });
     if (this.props.onChange) {
-      this.props.onChange(e.target.value, errorMessage);
+      this.props.onChange(e.target.value);
     }
   };
 

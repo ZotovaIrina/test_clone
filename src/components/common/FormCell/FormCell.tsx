@@ -3,6 +3,7 @@ import * as React from 'react';
 export interface IFormCell {
   errorText?: string | null;
   hintText?: string | null;
+  placeHolder?: string;
   isRequired?: boolean;
   label?: string | null;
   wrapInput?: boolean;

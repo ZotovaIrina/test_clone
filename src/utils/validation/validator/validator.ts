@@ -1,6 +1,6 @@
 import generateValidationMessage from '../generateValidationMessage/generateValidationMessage';
-import {isNullOrUndefined} from '../isNullOrUndefined';
 import {IValidationResult} from './ValidationResult';
+import {isNullOrUndefined} from '../../isNullOrUndefined';
 
 export interface IValidatorMessages {
   validMessage?: string;
@@ -48,7 +48,7 @@ export default function validator(value: any, config: IValidatorConfig): IValida
       case ValidationType.phone:
         isValid = validateType(value, 'number') && value.toString().length === 10;
         console.log(isValid, value.toString().length, validateType(value, 'number'));
-        if ((value === null || value === undefined) && config.required) {
+        if (isNullOrUndefined(value) && config.required) {
           isValid = false;
           invalidMessage = generateValidationMessage('required', config.label);
         }

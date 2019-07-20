@@ -1,0 +1,42 @@
+{
+  "name": {
+    "formCell": {
+      "label": "Name",
+      "isRequired": true
+    },
+    "value": "name",
+    "validationType": "string"
+  },
+  "companyName": {
+    "formCell": {
+      "label": "Company",
+      "isRequired": true
+    },
+    "value": "companyName",
+    "validationType": "string"
+  },
+  "phone": {
+    "formCell": {
+      "label": "Phone",
+      "isRequired": false
+    },
+    "value": "phone",
+    "validationType": "phone"
+  },
+  "email": {
+    "formCell": {
+      "label": "Email",
+      "isRequired": true
+    },
+    "value": "email",
+    "validationType": "string"
+  },
+  "message": {
+    "formCell": {
+      "label": "Your message",
+      "isRequired": true
+    },
+    "value": "message",
+    "validationType": "string"
+  }
+}
