@@ -10,6 +10,7 @@ const ContactMe: React.FunctionComponent<IContactFormProps> = props => {
         formError={props.formError}
         config={props.config}
         onChange={props.onChange}
+        onSubmit={props.onSubmit}
       />
     </>
   )

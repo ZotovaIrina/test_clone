@@ -3,17 +3,26 @@ import ContactInformation from '../../types/ContactInformation';
 import {ContactFormActions} from './contactFormActions';
 import {IAction} from '../../types/Action';
 
+
+interface IContactFormPageConfig {
+  formIsValid: boolean;
+}
+
 export interface IContactMeStore {
   formData: ContactInformation,
-  formError: object
+  formError: object,
+  pageConfig: IContactFormPageConfig
 }
 
 const defaultState:IContactMeStore = {
   formData: new ContactInformation(),
-  formError: {}
+  formError: {},
+  pageConfig: {
+    formIsValid: false
+  }
 };
 
-const ContactFormStore: Reducer<IContactMeStore, any> = (state = defaultState, action:IAction) => {
+const ContactFormReducer: Reducer<IContactMeStore, any> = (state = defaultState, action:IAction) => {
   let newState = {...state};
 
   switch (action.type as ContactFormActions) {
@@ -35,9 +44,16 @@ const ContactFormStore: Reducer<IContactMeStore, any> = (state = defaultState, a
         }
       };
       break;
-
+    case ContactFormActions.setFormIsValid:
+      newState = {
+        ...state,
+        pageConfig: {
+          formIsValid: action.payload
+        }
+      };
+      break;
   }
   return newState;
 };
 
-export default ContactFormStore
+export default ContactFormReducer;

@@ -1,5 +1,5 @@
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import ContactFormStore, {IContactMeStore} from './contactForm/contactFormStore';
+import ContactFormReducer, {IContactMeStore} from './contactForm/contactFormReducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
@@ -8,7 +8,7 @@ export interface IStore {
 }
 
 const reducer = combineReducers({
-  contactForm: ContactFormStore
+  contactForm: ContactFormReducer
 });
 
 const errorLog = (store: any) => (next: any) => (action: any) => {

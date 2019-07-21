@@ -12,6 +12,7 @@ export interface IContactFormProps {
   formError: object;
   config: IContactMe,
   onChange: (property: string, newValue: any, propertyType?: ValidationType) => void;
+  onSubmit: () => void
 }
 
 const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
@@ -20,7 +21,7 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
     props.onChange(property, value, propertyType);
   };
   return (
-    <form>
+    <>
       <TextInput
         formCell={{
           ...props.config.name.formCell,
@@ -42,8 +43,7 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
             errorText: props.formError[props.config.phone.value]
           }
         }
-        onChange={value => onFormChange(props.config.phone.value, value, ValidationType.number)}
-        onBlur={(event, value) => onFormChange(props.config.phone.value, value)}
+        onChange={value => onFormChange(props.config.phone.value, value)}
         inputValue={props.formData[props.config.phone.value]}/>
       <TextInput
         formCell={{
@@ -59,8 +59,8 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
         }}
         inputValue={props.formData[props.config.message.value]}
         onChange={value => onFormChange(props.config.message.value, value)}/>
-      <Button>Submit</Button>
-    </form>
+      <Button onClick={props.onSubmit}>Submit</Button>
+    </>
   )
 };
 

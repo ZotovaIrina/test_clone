@@ -33,11 +33,13 @@ export default function validator(value: any, config: IValidatorConfig): IValida
 
   let validationResult: IValidationResult = {
     message: null,
+    isValid: true
   };
 
   if (isNullOrUndefined(value)) {
     validationResult = {
       message: config.required ? generateValidationMessage('required', config.label) : null,
+      isValid: !config.required
     };
   } else {
     let isValid: boolean = true;
@@ -47,7 +49,6 @@ export default function validator(value: any, config: IValidatorConfig): IValida
         break;
       case ValidationType.phone:
         isValid = validateType(value, 'number') && value.toString().length === 10;
-        console.log(isValid, value.toString().length, validateType(value, 'number'));
         if (isNullOrUndefined(value) && config.required) {
           isValid = false;
           invalidMessage = generateValidationMessage('required', config.label);
@@ -69,7 +70,8 @@ export default function validator(value: any, config: IValidatorConfig): IValida
         }
     }
     validationResult = {
-      message: isValid ? null : invalidMessage
+      message: isValid ? null : invalidMessage,
+      isValid
     };
   }
 

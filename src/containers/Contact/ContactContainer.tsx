@@ -2,7 +2,7 @@ import ContactMe from './ContactMe';
 import {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
-import {updateContactMeForm} from '../../store/contactForm/contactFormMiddleware';
+import {submitContactMeForm, updateContactMeForm} from '../../store/contactForm/contactFormDispatch';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import IContactMe from '../../configs/formConfigs/contactMe';
 
@@ -13,7 +13,8 @@ const mapStateToProps = (state: IStore) => ({
 });
 
 const mapDispatchToProps = () => ({
-  onChange: updateContactMeForm
+  onChange: updateContactMeForm,
+  onSubmit: submitContactMeForm
 });
 
 const ContactContainer = withRouter(
