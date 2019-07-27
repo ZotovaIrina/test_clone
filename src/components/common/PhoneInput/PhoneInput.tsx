@@ -7,6 +7,7 @@ interface IPhoneInput {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (value: number | null) => void;
+  autoFocus?: boolean;
   inputValue: number | null
 }
 

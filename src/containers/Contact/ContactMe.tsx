@@ -9,6 +9,7 @@ const ContactMe: React.FunctionComponent<IContactFormProps> = props => {
         formData={props.formData}
         formError={props.formError}
         config={props.config}
+        pageConfig={props.pageConfig}
         onChange={props.onChange}
         onSubmit={props.onSubmit}
       />

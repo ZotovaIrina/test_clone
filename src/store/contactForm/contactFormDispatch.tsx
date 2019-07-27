@@ -1,5 +1,5 @@
 import store from '../Store';
-import {editErrorAction, editValueAction, setFormIsValidAction} from './contactFormActions';
+import {editErrorAction, editValueAction, setFormFocusedField, setFormIsValidAction} from './contactFormActions';
 import {ThunkDispatch} from 'redux-thunk';
 import {AnyAction, Store} from 'redux';
 import validator, {ValidationType} from '../../utils/validation/validator/validator';
@@ -27,9 +27,14 @@ export const updateContactMeForm = (property: string, value: any, propertyType?:
 };
 
 export const submitContactMeForm = () => {
-  if(!store.getState().contactForm.pageConfig.formIsValid) {
-const data = store.getState().contactForm.formData;
-    const properties = Object.keys(data);
+  if (!store.getState().contactForm.pageConfig.formIsValid) {
+    const data = store.getState().contactForm.formData;
+    const properties = Object.keys(config);
+
+    (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+      dispatch(setFormFocusedField(undefined));
+    });
+
     properties.forEach(property => {
       const errorMessage = validator(
         data[property],
@@ -43,6 +48,12 @@ const data = store.getState().contactForm.formData;
       (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
         dispatch(editErrorAction({[property]: errorMessage}));
       });
+
+      if (errorMessage && !store.getState().contactForm.pageConfig.focusedField) {
+        (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+          dispatch(setFormFocusedField(property));
+        });
+      }
 
     })
   }

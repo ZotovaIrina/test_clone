@@ -4,8 +4,9 @@ import {ContactFormActions} from './contactFormActions';
 import {IAction} from '../../types/Action';
 
 
-interface IContactFormPageConfig {
+export interface IContactFormPageConfig {
   formIsValid: boolean;
+  focusedField?: string;
 }
 
 export interface IContactMeStore {
@@ -18,7 +19,8 @@ const defaultState:IContactMeStore = {
   formData: new ContactInformation(),
   formError: {},
   pageConfig: {
-    formIsValid: false
+    formIsValid: false,
+    focusedField: undefined
   }
 };
 
@@ -48,7 +50,17 @@ const ContactFormReducer: Reducer<IContactMeStore, any> = (state = defaultState,
       newState = {
         ...state,
         pageConfig: {
+          ...state.pageConfig,
           formIsValid: action.payload
+        }
+      };
+      break;
+    case ContactFormActions.setFormFocusedField:
+      newState = {
+        ...state,
+        pageConfig: {
+          ...state.pageConfig,
+          focusedField: action.payload
         }
       };
       break;

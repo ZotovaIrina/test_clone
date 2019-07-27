@@ -9,6 +9,7 @@ import IContactMe from '../../configs/formConfigs/contactMe';
 const mapStateToProps = (state: IStore) => ({
   formData: state.contactForm.formData,
   formError: state.contactForm.formError,
+  pageConfig: state.contactForm.pageConfig,
   config: getConfig(AppConfigs.contactMe) as IContactMe
 });
 
