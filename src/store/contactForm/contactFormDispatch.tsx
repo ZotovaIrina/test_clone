@@ -2,33 +2,26 @@ import store from '../Store';
 import {editErrorAction, editValueAction, setFormFocusedField, setFormIsValidAction} from './contactFormActions';
 import {ThunkDispatch} from 'redux-thunk';
 import {AnyAction, Store} from 'redux';
-import validator, {ValidationType} from '../../utils/validation/validator/validator';
+import {ValidationType} from '../../utils/validation/validator/validator';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
-import allFieldsIsValid from '../../utils/validation/allFieldsIsValid';
+import allFieldsIsValidation, {IAllFieldsValidation} from '../../utils/validation/allFieldsIsValidation';
 
 const config = getConfig(AppConfigs.contactMe);
 
 export const updateContactMeForm = (property: string, value: any, propertyType?: ValidationType) => {
 
-  const errorMessage = validator(
-    value,
-    {
-      validationType: propertyType || config[property].validationType,
-      required: config[property].formCell.isRequired,
-      label: config[property].formCell.label
-    }
-  ).message;
+  const validation:IAllFieldsValidation = allFieldsIsValidation(store.getState().contactForm.formData, config);
 
   (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
     dispatch(editValueAction({[property]: value}));
-    dispatch(editErrorAction({[property]: errorMessage}));
-    dispatch(setFormIsValidAction(allFieldsIsValid(store.getState().contactForm.formData, config)));
+    dispatch(editErrorAction({[property]: validation.validationMessages[property]}));
+    dispatch(setFormIsValidAction(validation.valid));
   });
 };
 
 export const submitContactMeForm = () => {
   if (!store.getState().contactForm.pageConfig.formIsValid) {
-    const data = store.getState().contactForm.formData;
+    const formValidation = allFieldsIsValidation(store.getState().contactForm.formData, config);
     const properties = Object.keys(config);
 
     (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
@@ -36,20 +29,12 @@ export const submitContactMeForm = () => {
     });
 
     properties.forEach(property => {
-      const errorMessage = validator(
-        data[property],
-        {
-          validationType: config[property].validationType,
-          required: config[property].formCell.isRequired,
-          label: config[property].formCell.label
-        }
-      ).message;
 
       (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
-        dispatch(editErrorAction({[property]: errorMessage}));
+        dispatch(editErrorAction({[property]: formValidation.validationMessages[property]}));
       });
 
-      if (errorMessage && !store.getState().contactForm.pageConfig.focusedField) {
+      if (formValidation.validationMessages[property] && !store.getState().contactForm.pageConfig.focusedField) {
         (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
           dispatch(setFormFocusedField(property));
         });

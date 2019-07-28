@@ -2,7 +2,6 @@ import lodash from 'lodash';
 import {isNullOrUndefined} from './isNullOrUndefined';
 
 const getBooleanByConfig = (path: boolean | string | undefined | null, dataObject: object): boolean => {
-  console.log(path);
   if (isNullOrUndefined(path)) {
     return false
   } else {

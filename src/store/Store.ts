@@ -1,7 +1,10 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux';
+import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import ContactFormReducer, {IContactMeStore} from './contactForm/contactFormReducer';
-import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+
+declare global {
+  interface Window { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any; }
+}
 
 export interface IStore {
   contactForm: IContactMeStore
@@ -19,8 +22,13 @@ const errorLog = (store: any) => (next: any) => (action: any) => {
   }
 };
 
-const middleware = applyMiddleware(thunk, logger, errorLog);
+const middleware = applyMiddleware(thunk, errorLog);
 
-const store = createStore(reducer, {}, middleware);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+const store = createStore(reducer, {}, composeEnhancers(
+  middleware
+));
 
 export default store;
