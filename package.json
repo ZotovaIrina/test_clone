@@ -6,6 +6,7 @@
     "@types/lodash": "^4.14.136",
     "@types/redux-thunk": "^2.1.0",
     "@types/styled-components": "^4.1.18",
+    "@types/uuid": "^3.4.5",
     "lodash": "^4.17.15",
     "react": "16.8.6",
     "react-dom": "16.8.6",
@@ -17,7 +18,8 @@
     "redux": "4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

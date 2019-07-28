@@ -7,6 +7,8 @@ import {ValidationType} from '../../utils/validation/validator/validator';
 import Button from '../common/Button/Button.styles';
 import IContactMe from '../../configs/formConfigs/contactMe';
 import {IContactFormPageConfig} from '../../store/contactForm/contactFormReducer';
+import Toggle from '../common/Toggle/Toggle';
+import getBooleanByConfig from '../../utils/getBooleanByConfig';
 
 export interface IContactFormProps {
   formData: ContactInformation;
@@ -44,6 +46,7 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
         formCell={
           {
             ...props.config.phone.formCell,
+            isRequired: getBooleanByConfig(props.config.phone.formCell.isRequired, props),
             errorText: props.formError[props.config.phone.value]
           }
         }
@@ -66,6 +69,13 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
         autoFocus={props.pageConfig.focusedField === props.config.message.value}
         inputValue={props.formData[props.config.message.value]}
         onChange={value => onFormChange(props.config.message.value, value)}/>
+      <Toggle inputValue={props.formData[props.config.contactByPhone.value]}
+              formCell={{
+                ...props.config.contactByPhone.formCell,
+                errorText: props.formError[props.config.contactByPhone.value]
+              }}
+              onChange={value => onFormChange('contactByPhone', value)}/>
+
       <Button onClick={props.onSubmit}>Submit</Button>
     </>
   )

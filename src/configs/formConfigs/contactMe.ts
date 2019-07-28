@@ -5,5 +5,6 @@ export default interface IContactMe {
   companyName: IFormConfig,
   phone: IFormConfig,
   email: IFormConfig,
-  message: IFormConfig
+  message: IFormConfig,
+  contactByPhone: IFormConfig
 }
