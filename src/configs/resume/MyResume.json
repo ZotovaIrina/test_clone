@@ -1,0 +1,163 @@
+{
+  "title": "Frontend Developer",
+  "contacts": {
+    "E-mail": "zotovaforjob@gmail.com",
+    "Location": "Edison, NJ",
+    "Git": "www.github.com/ZotovaIrina",
+    "Linkedin": "www.linkedin.com/in/irina-zotova-1468b9104"
+  },
+  "summary": {
+    "experience": [
+      "JavaScript",
+      "TypeScript",
+      "HTML, CSS, SASS",
+      "React",
+      "Redux",
+      "Mobx",
+      "AngularJS",
+      "Bootstrap",
+      "Angular Material",
+      "Webpack",
+      "Gulp",
+      "Ionic",
+      "Cordova"
+    ],
+    "familiar": [
+      "VueJS",
+      "jQuery",
+      "Kotlin",
+      "Ruby on Rail"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Spruce",
+      "start": "04-04-2018",
+      "end": "present",
+      "position": "Software Engineer",
+      "address": "New York, NY",
+      "website": [
+        "spruce.co"
+      ],
+      "description": [
+        "Develop UI for web application",
+        "Refactoring from SCSS to Styled Components",
+        "Migration from Ruby on Rails to React application",
+        "Create UI with different technologies: Typescript + React; Mobx, Redux and React Context API for state management, Kotlin.JS",
+        "Create HTML/SCSS template for PDF documents generation"
+      ],
+      "technologies": [
+        "Typescript",
+        "React",
+        "Redux",
+        "Mobx",
+        "React Context API",
+        "Styled components",
+        "Jest",
+        "SCSS",
+        "Webpack",
+        "Kotlin",
+        "Ruby on Rails"
+      ]
+    },
+    {
+      "name": "EffectiveSoft",
+      "start": "01-08-2016",
+      "end": "01-08-2017",
+      "position": "UI Developer",
+      "address": "Minsk, Belarus",
+      "website": [
+        "https://play.google.com/store/apps/details?id=com.lbrc.PeriodCalendar",
+        "https://play.google.com/store/apps/details?id=com.brc.PeriodTrackerDiary",
+        "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1032267351?mt=8",
+        "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1064911742?mt=8"
+      ],
+      "description": [
+        "Developing UI for hybrid mobile application using Cordova, JavaScript, AngularJS, HTML, SCSS, jQuery",
+        "Using Gulp for building frontend part",
+        "Using media-queries for implementing responsive design",
+        "Create unit tests using Jasmine",
+        "Cross platform development iOS, Android"
+      ],
+      "technologies": [
+        "Cordova",
+        "JavaScript",
+        "AngularJS",
+        "jQuery",
+        "HTML",
+        "SCSS",
+        "Gulp",
+        "Jasmine",
+        "Git"
+      ]
+    },
+    {
+      "name": "freelance",
+      "start": "01-04-2015",
+      "end": "01-08-2016",
+      "position": "JavaScript Developer",
+      "address": "Chelyabinsk, Russia",
+      "website": [
+        "http://vzlobin.ru/",
+        "https://embroidery-pattern.herokuapp.com"
+      ],
+      "description": [
+        "Developing UI using JavaScript, AngularJS, HTML, CSS, jQuery",
+        "Using Grunt for building frontend part",
+        "Doing module architecture using Browserify",
+        "Using media-queries for implementing responsive design",
+        "Developing admin panel using Node.js, Express, imagemagick, HTML, CSS, SASS, Bootstrap, AngularJS",
+        "Developing hybrid mobile app using Ionic, Cordova, AngularJS."
+      ],
+      "technologies": [
+        "JavaScript",
+        "AngularJS",
+        "jQuery",
+        "HTML",
+        "CSS",
+        "Grunt",
+        "Cordova",
+        "Ionic",
+        "Node.js",
+        "Express.js",
+        "Imagemagick",
+        "Browserify",
+        "Git"
+      ]
+    },
+    {
+      "name": "Elmetro LLC",
+      "notSoftwareProject": true,
+      "start": "01-09-2008",
+      "end": "01-01-2012",
+      "position": "Electrical Engineer",
+      "address": "Chelyabinsk, Russia",
+      "website": [
+        "https://elmetro.ru"
+      ],
+      "description": [
+        "Designed electrical devices using 3D CAD systems",
+        "Designed PCBs",
+        "Elaboration of the designing documentation",
+        "Preparing templates for CNC"
+      ]
+    }
+  ],
+  "education": {
+    "degree": [
+      {
+        "startYear": "2005",
+        "endYear": "2010",
+        "title": "BS in Electrical Engineering, South Ural State University, Chelyabinsk, Russia"
+      }
+    ],
+    "courses": [
+      {
+        "startYear": "2015",
+        "endYear": "2016",
+        "title": "Full Stack Web Development, Coursera",
+        "url": "https://www.coursera.org/account/accomplishments/specialization/7G7MHNFDP69S"
+      }
+    ]
+  }
+}
