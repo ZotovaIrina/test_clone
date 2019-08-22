@@ -1,4 +1,4 @@
-import IFormConfig from '../../types/IFormConfig';
+import IFormConfig from './IFormConfig';
 
 export default interface IContactMe {
   name: IFormConfig,
