@@ -10,7 +10,6 @@
     "experience": [
       "JavaScript",
       "TypeScript",
-      "HTML, CSS, SASS",
       "React",
       "Redux",
       "Mobx",
@@ -20,7 +19,8 @@
       "Webpack",
       "Gulp",
       "Ionic",
-      "Cordova"
+      "Cordova",
+      "HTML, CSS, SASS"
     ],
     "familiar": [
       "VueJS",

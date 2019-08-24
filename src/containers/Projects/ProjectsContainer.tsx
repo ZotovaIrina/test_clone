@@ -1,23 +1,39 @@
+import React from 'react';
 import ProjectsPage from './ProjectsPage';
 import {IStore} from '../../store/Store';
-import {withRouter} from 'react-router';
 import {connect} from 'react-redux';
-import getConfig, {AppConfigs} from '../../configs/getConfig';
+import {getListOfTechnologies, initProjects} from '../../store/resume/resumeDispatch';
 import IProject from '../../configs/resume/projects';
 
+interface IProjectsContainerProps {
+  projects: IProject[];
+  technologies: string[];
+}
 
 const mapStateToProps = (state: IStore) => ({
-  projects: getConfig(AppConfigs.myResume, 'projects') as IProject[]
+  projects: state.myResume.projects,
+  technologies: getListOfTechnologies()
 });
 
 const mapDispatchToProps = () => ({
 });
 
-const ProjectsContainer = withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ProjectsPage) as any
-);
+export class ProjectsContainer extends React.Component<IProjectsContainerProps> {
+  constructor(props: IProjectsContainerProps) {
+    super(props);
+    initProjects();
+  }
 
-export default ProjectsContainer;
+  render(){
+    return (
+      <ProjectsPage projects={this.props.projects} technologies={this.props.technologies} />
+    );
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProjectsContainer);
+
+// export default ProjectsContainer;
