@@ -1175,6 +1175,12 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-lazyload@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@types/react-lazyload/-/react-lazyload-2.5.0.tgz#7d8dd04c9a711fc0f1ea3419786acdcc01fb11dc"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@*":
   version "0.60.2"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.2.tgz#2dca78481a904419c2a5907288dd97d1090c6e3c"
@@ -7070,6 +7076,10 @@ react-error-overlay@^5.1.6:
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
+
+react-lazyload@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/react-lazyload/-/react-lazyload-2.6.2.tgz#6a1660de6e8653632797539189d19d64e924482c"
 
 react-number-format@^4.0.8:
   version "4.0.8"

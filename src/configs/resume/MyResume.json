@@ -32,6 +32,7 @@
   "projects": [
     {
       "name": "Spruce",
+      "image": "spruce.jpg",
       "start": "04-04-2018",
       "end": "present",
       "position": "Software Engineer",
@@ -62,6 +63,7 @@
     },
     {
       "name": "EffectiveSoft",
+      "image": "calendar.jpg",
       "start": "01-08-2016",
       "end": "01-08-2017",
       "position": "UI Developer",
@@ -93,6 +95,7 @@
     },
     {
       "name": "freelance",
+      "image": "EP.jpg",
       "start": "01-04-2015",
       "end": "01-08-2016",
       "position": "JavaScript Developer",
