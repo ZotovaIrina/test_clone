@@ -3,12 +3,20 @@ import {Reducer} from 'redux';
 import {IAction} from '../../types/Action';
 import {ResumeActions} from './resumeActions';
 
+export interface IResumePageConfig {
+  projectFilter: string| null;
+}
+
 export interface IResumeStore {
   projects: IProject[];
+  pageConfig: IResumePageConfig;
 }
 
 const defaultState:IResumeStore = {
-  projects: []
+  projects: [],
+  pageConfig: {
+    projectFilter: null
+  }
 };
 
 const ResumeReducer: Reducer<IResumeStore, any> = (state = defaultState, action:IAction) => {
@@ -19,6 +27,15 @@ const ResumeReducer: Reducer<IResumeStore, any> = (state = defaultState, action:
       newState = {
         ...state,
         projects: action.payload
+      };
+      break;
+    case ResumeActions.setVisibilityFilter:
+      newState = {
+        ...state,
+        pageConfig: {
+          ...state.pageConfig,
+          projectFilter: action.payload
+        }
       };
       break;
   }

@@ -19,8 +19,7 @@
       "Webpack",
       "Gulp",
       "Ionic",
-      "Cordova",
-      "HTML, CSS, SASS"
+      "Cordova"
     ],
     "familiar": [
       "VueJS",
@@ -48,7 +47,7 @@
         "Create HTML/SCSS template for PDF documents generation"
       ],
       "technologies": [
-        "Typescript",
+        "TypeScript",
         "React",
         "Redux",
         "Mobx",
@@ -115,6 +114,8 @@
       "technologies": [
         "JavaScript",
         "AngularJS",
+        "Bootstrap",
+        "Angular Material",
         "jQuery",
         "HTML",
         "CSS",

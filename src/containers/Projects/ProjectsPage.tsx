@@ -7,7 +7,8 @@ import Button from '../../components/common/Button/Button.styles';
 
 export interface IProjectsPage {
   projects: IProject[],
-  technologies: string[]
+  technologies: string[],
+  setProjectsFilter: (filter: string | null) => void
 }
 
 const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
@@ -17,7 +18,10 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
       <h1>Projects</h1>
       <div>
         <h3>Technologies:</h3>
-        {props.technologies.map(technology => <Button key={technology}>{technology}</Button>)}
+        <Button onClick={e => props.setProjectsFilter(null)}>Show All</Button>
+        {props.technologies.map(technology =>
+          <Button key={technology} onClick={e => props.setProjectsFilter(technology)}>{technology}</Button>
+        )}
       </div>
       <ProjectsRowStyled data-id="ProjectsRowStyled">
       {
