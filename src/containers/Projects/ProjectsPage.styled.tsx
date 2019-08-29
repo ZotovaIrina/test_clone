@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 export const ProjectsRowStyled = styled.div`
-display: grid;
-grid-gap: 16px;
-grid-template-columns: repeat(3, 1fr);
+position: relative;
+display: block;
+width: 100%;
+
+& > * {
+    display: inline-block;
+    padding-left: 16px;
+    box-sizing: border-box;
+  }
+      
+  & > *:first-child {
+   padding: 0;
+  }
 `;

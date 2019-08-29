@@ -2,7 +2,11 @@ import React from 'react';
 import IProject from '../../../configs/resume/projects';
 import getImage from '../../../utils/getImage';
 import {v4 as uuid} from 'uuid';
-import {ProjectContainerStyled, ProjectDescriptionStyled, ProjectImageStyled} from './ProjectComponent.styles';
+import {
+  ProjectContainerStyled,
+  ProjectDescriptionStyled,
+  ProjectImageStyled
+} from './ProjectComponent.styles';
 import LazyLoad from 'react-lazyload';
 
 
