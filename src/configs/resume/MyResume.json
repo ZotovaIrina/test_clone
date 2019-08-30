@@ -3,8 +3,8 @@
   "contacts": {
     "E-mail": "zotovaforjob@gmail.com",
     "Location": "Edison, NJ",
-    "Git": "www.github.com/ZotovaIrina",
-    "Linkedin": "www.linkedin.com/in/irina-zotova-1468b9104"
+    "Git": "http://www.github.com/ZotovaIrina",
+    "LinkedIn": "http://www.linkedin.com/in/irina-zotova-1468b9104"
   },
   "summary": {
     "experience": [
@@ -33,7 +33,7 @@
       "name": "Spruce",
       "image": "spruce.jpg",
       "start": "04-04-2018",
-      "end": "present",
+      "end": "Present",
       "position": "Software Engineer",
       "address": "New York, NY",
       "website": [
