@@ -1,5 +1,5 @@
 import React from 'react';
-import IMyResume from '../../configs/resume/MyResume';
+import IMyResume from '../../../configs/resume/MyResume';
 import {
   ContactRow, EducationRow,
   ResumeContainerStyled,
@@ -8,10 +8,10 @@ import {
   ResumeList, ResumeListItem,
   ResumeRowStyled,
   SummaryRow
-} from './ResumePage.styled';
-import OpenLinkInNewTab from '../../components/common/OpenLinkInNewTab/OpenLinkInNewTab';
-import DateStartEnd from '../../components/resume/DateStartEnd';
-import {DateStartEndStyled} from '../../components/resume/DateStartEnd.styled';
+} from '../../../containers/ResumePage/ResumePage.styled';
+import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
+import DateStartEnd from '../DateStartEnd/DateStartEnd';
+import {BoldText, ItalicText} from '../../common/style/Text.styled';
 
 export interface IResumePage {
   resume: IMyResume
@@ -47,11 +47,11 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
             <ResumeRowStyled data-id="ResumeRowStyled summary">
               <ResumeH2 data-id={'ResumeH2'}>Summary</ResumeH2>
               <SummaryRow data-id={'SummaryRow'}>
-                <span>Technical Skills: </span>
+                <ItalicText>Technical Skills: </ItalicText>
                 <span>{props.resume.summary.experience.join(', ')}</span>
               </SummaryRow>
               <SummaryRow data-id={'SummaryRow'}>
-                <span>Familiar with: </span>
+                <ItalicText>Familiar with: </ItalicText>
                 <span>{props.resume.summary.familiar.join(', ')}</span>
               </SummaryRow>
             </ResumeRowStyled>
@@ -73,7 +73,10 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
                       }
                     </ResumeList>
                   </div>
-                  {project.technologies ? <div>Technologies: {project.technologies.join(', ')}</div> : null}
+                  {project.technologies ? <div>
+                    <ItalicText>Technologies: </ItalicText>
+                    <span>{project.technologies.join(', ')}</span>
+                  </div> : null}
                 </ResumeRowStyled>
               )
             }
@@ -82,8 +85,8 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               <ResumeH2>Courses</ResumeH2>
               {
                 props.resume.education.courses.map(course =>
-                  <EducationRow>
-                    <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
+                  <EducationRow key={course.title}>
+                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
                   </EducationRow>
@@ -95,8 +98,8 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               <ResumeH2>Education</ResumeH2>
               {
                 props.resume.education.degree.map(course =>
-                  <EducationRow>
-                    <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
+                  <EducationRow key={course.title}>
+                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
                   </EducationRow>

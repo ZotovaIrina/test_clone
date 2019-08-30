@@ -1,11 +1,12 @@
 import React from 'react';
-import Resume, {IResumePage} from './Resume';
+import {IResumePage} from '../../components/Resume/Resume/Resume';
 import {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
 import {initProjects} from '../../store/resume/resumeDispatch';
 import {Dispatch} from 'redux';
 import IMyResume from '../../configs/resume/MyResume';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
+import ResumePage from './ResumePage';
 
 const mapStateToProps = (state: IStore) => ({
   resume: getConfig(AppConfigs.myResume) as IMyResume
@@ -22,9 +23,7 @@ export class ResumeContainer extends React.Component<IResumePage> {
 
   render(){
     return (
-      <Resume
-        resume={this.props.resume}
-      />
+      <ResumePage resume={this.props.resume} />
     );
   }
 }

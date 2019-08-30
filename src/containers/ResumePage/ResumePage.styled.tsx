@@ -1,17 +1,24 @@
 import styled from 'styled-components';
 
+export const ResumeDontPrintBlock = styled.div`
+@media print
+{    
+  display: none !important;
+}
+`;
+
 export const ResumeContainerStyled = styled.div`
 padding: 24px;
 `;
 
 export const ResumeH1 = styled.div`
-font-size: 28px;
+font-size: 24px;
 text-align: center;
 padding: 8px 0;
 `;
 
 export const ResumeH2 = styled.div`
-font-size: 24px;
+font-size: 20px;
 padding: 4px 0;
 `;
 

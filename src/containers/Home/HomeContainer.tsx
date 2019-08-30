@@ -1,8 +1,12 @@
 import React from 'react';
+import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
 
 const HomeContainer: React.FunctionComponent<{}> = props => {
   return (
-    <h1>Home</h1>
+    <>
+      <NavigationBar/>
+      <h1>Home</h1>
+    </>
   )
 };
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import * as moment from 'moment';
-import {DateStartEndStyled} from './DateStartEnd.styled';
+import {BoldText} from '../../common/style/Text.styled';
 
 const DateStartEnd:React.FunctionComponent<{start: string, end: string}> = props => {
   return(
-    <DateStartEndStyled data-id="DateStartEndStyled">
+    <BoldText>
       {moment.default(props.start).format('MM.YYYY')} - {props.end.toLowerCase() === 'present' ? 'Present' : moment.default(props.end).format('MM.YYYY')}
-    </DateStartEndStyled>
+    </BoldText>
   )
 };
 

@@ -5,6 +5,7 @@ import {v4 as uuid} from 'uuid';
 import Button from '../../components/common/Button/Button.styles';
 import {AddRemoveAnimation} from '../../components/common/Animation/AddRemoveAnimation.styled';
 import {ProjectsRowStyled} from './ProjectsPage.styled';
+import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
 
 export interface IProjectsPage {
   projects: IProject[],
@@ -25,6 +26,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
 
   return (
     <div>
+      <NavigationBar/>
       <h1>Projects</h1>
       <div>
         <h3>Technologies:</h3>
@@ -36,7 +38,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
       {
         props.projects
           .map((project: IProject) =>
-            <AddRemoveAnimation defaultWidth={'33.33%'} hide={hideProject(project)} data-id="AddRemoveAnimation">
+            <AddRemoveAnimation key={project.name} defaultWidth={'33.33%'} hide={hideProject(project)} data-id="AddRemoveAnimation">
               <ProjectsComponent key={uuid()} project={project}/>
             </AddRemoveAnimation>
           )
