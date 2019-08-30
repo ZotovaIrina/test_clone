@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const ResumeDontPrintBlock = styled.div`
+@media print
+{    
+  display: none !important;
+}
+`;
+
 export const ResumeContainerStyled = styled.div`
 padding: 24px;
 `;

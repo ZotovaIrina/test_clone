@@ -1,5 +1,5 @@
 import React from 'react';
-import IMyResume from '../../configs/resume/MyResume';
+import IMyResume from '../../../configs/resume/MyResume';
 import {
   ContactRow, EducationRow,
   ResumeContainerStyled,
@@ -8,10 +8,10 @@ import {
   ResumeList, ResumeListItem,
   ResumeRowStyled,
   SummaryRow
-} from './ResumePage.styled';
-import OpenLinkInNewTab from '../../components/common/OpenLinkInNewTab/OpenLinkInNewTab';
-import DateStartEnd from '../../components/resume/DateStartEnd';
-import {DateStartEndStyled} from '../../components/resume/DateStartEnd.styled';
+} from '../../../containers/ResumePage/ResumePage.styled';
+import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
+import DateStartEnd from '../DateStartEnd/DateStartEnd';
+import {DateStartEndStyled} from '../DateStartEnd/DateStartEnd.styled';
 
 export interface IResumePage {
   resume: IMyResume
@@ -82,7 +82,7 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               <ResumeH2>Courses</ResumeH2>
               {
                 props.resume.education.courses.map(course =>
-                  <EducationRow>
+                  <EducationRow key={course.title}>
                     <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
@@ -95,7 +95,7 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               <ResumeH2>Education</ResumeH2>
               {
                 props.resume.education.degree.map(course =>
-                  <EducationRow>
+                  <EducationRow key={course.title}>
                     <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}

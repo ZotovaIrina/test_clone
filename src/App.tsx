@@ -3,20 +3,19 @@ import {Route, Router} from 'react-router';
 import * as H from 'history';
 import HomeContainer from './containers/Home/HomeContainer';
 import ContactContainer from './containers/Contact/ContactContainer';
-import ProjectsContainer from './containers/ProjectsResume/ResumeContainer';
+import ProjectsContainer from './containers/Projects/ProjectsContainer';
 import {Provider} from 'react-redux';
 import store from './store/Store';
-import NavigationBar from './components/common/NavigationBar/NavigationBar';
+import ResumeContainer from './containers/ResumePage/ResumeContainer';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <Router history={H.createBrowserHistory()}>
         <>
-          <NavigationBar />
           <Route path={'/'} component={HomeContainer} exact/>
           <Route path={'/projects'} component={ProjectsContainer} exact/>
-          <Route path={'/resume'} component={ProjectsContainer} exact/>
+          <Route path={'/resume'} component={ResumeContainer} exact/>
           <Route path={'/contact'} component={ContactContainer} exact/>
         </>
       </Router>
