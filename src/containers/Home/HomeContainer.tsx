@@ -1,13 +1,26 @@
 import React from 'react';
-import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
+import {IStore} from '../../store/Store';
+import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
+import HomePage from './HomePage';
 
-const HomeContainer: React.FunctionComponent<{}> = props => {
-  return (
-    <>
-      <NavigationBar/>
-      <h1>Home</h1>
-    </>
-  )
-};
+const mapStateToProps = (state: IStore) => ({
+});
 
-export default HomeContainer;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+});
+
+export class HomeContainer extends React.Component<{}> {
+
+  render(){
+    return (
+      <HomePage />
+    );
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeContainer);
+
