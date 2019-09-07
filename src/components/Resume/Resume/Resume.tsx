@@ -10,8 +10,8 @@ import {
   SummaryRow
 } from '../../../containers/ResumePage/ResumePage.styled';
 import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
-import DateStartEnd from '../DateStartEnd/DateStartEnd';
 import {BoldText, ItalicText} from '../../common/style/Text.styled';
+import DateStartEnd from '../DateStartEnd/DateStartEnd';
 
 export interface IResumePage {
   resume: IMyResume
