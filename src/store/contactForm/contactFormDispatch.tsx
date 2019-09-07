@@ -10,7 +10,10 @@ const config = getConfig(AppConfigs.contactMe);
 
 export const updateContactMeForm = (property: string, value: any, propertyType?: ValidationType) => {
 
-  const validation:IAllFieldsValidation = allFieldsIsValidation(store.getState().contactForm.formData, config);
+  const validation:IAllFieldsValidation = allFieldsIsValidation({
+    ...store.getState().contactForm.formData,
+    [property]: value
+  }, config);
 
   (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
     dispatch(editValueAction({[property]: value}));

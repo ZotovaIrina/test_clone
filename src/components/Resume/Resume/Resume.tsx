@@ -10,8 +10,8 @@ import {
   SummaryRow
 } from '../../../containers/ResumePage/ResumePage.styled';
 import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
+import {BoldText, ItalicText} from '../../common/style/Text.styled';
 import DateStartEnd from '../DateStartEnd/DateStartEnd';
-import {DateStartEndStyled} from '../DateStartEnd/DateStartEnd.styled';
 
 export interface IResumePage {
   resume: IMyResume
@@ -47,11 +47,11 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
             <ResumeRowStyled data-id="ResumeRowStyled summary">
               <ResumeH2 data-id={'ResumeH2'}>Summary</ResumeH2>
               <SummaryRow data-id={'SummaryRow'}>
-                <span>Technical Skills: </span>
+                <ItalicText>Technical Skills: </ItalicText>
                 <span>{props.resume.summary.experience.join(', ')}</span>
               </SummaryRow>
               <SummaryRow data-id={'SummaryRow'}>
-                <span>Familiar with: </span>
+                <ItalicText>Familiar with: </ItalicText>
                 <span>{props.resume.summary.familiar.join(', ')}</span>
               </SummaryRow>
             </ResumeRowStyled>
@@ -73,7 +73,10 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
                       }
                     </ResumeList>
                   </div>
-                  {project.technologies ? <div>Technologies: {project.technologies.join(', ')}</div> : null}
+                  {project.technologies ? <div>
+                    <ItalicText>Technologies: </ItalicText>
+                    <span>{project.technologies.join(', ')}</span>
+                  </div> : null}
                 </ResumeRowStyled>
               )
             }
@@ -83,7 +86,7 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               {
                 props.resume.education.courses.map(course =>
                   <EducationRow key={course.title}>
-                    <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
+                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
                   </EducationRow>
@@ -96,7 +99,7 @@ const Resume: React.FunctionComponent<IResumePage> = props => {
               {
                 props.resume.education.degree.map(course =>
                   <EducationRow key={course.title}>
-                    <DateStartEndStyled>{course.startYear} - {course.endYear}</DateStartEndStyled>
+                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>
                     {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
                   </EducationRow>
