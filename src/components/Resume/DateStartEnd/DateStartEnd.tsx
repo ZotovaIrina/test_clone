@@ -1,6 +1,6 @@
 import React from 'react';
 import * as moment from 'moment';
-import {BoldText} from '../../common/style/Text.styled';
+import {BoldText} from '../../../style/Text.styled';
 
 const DateStartEnd:React.FunctionComponent<{start: string, end: string}> = props => {
   return(

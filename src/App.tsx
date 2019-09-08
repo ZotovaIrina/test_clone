@@ -7,6 +7,7 @@ import ProjectsContainer from './containers/Projects/ProjectsContainer';
 import {Provider} from 'react-redux';
 import store from './store/Store';
 import ResumeContainer from './containers/ResumePage/ResumeContainer';
+import './style/fonts.scss';
 
 const App: React.FC = () => {
   return (

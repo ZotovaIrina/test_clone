@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {H1} from '../common/style/Text.styled';
+import {H1} from '../../style/Text.styled';
 
 
 
