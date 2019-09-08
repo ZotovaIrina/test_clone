@@ -1,15 +1,18 @@
 import React from 'react';
-import {TitleTextContainer, TitleTextStyled} from '../../components/Home/Home.styled';
+import {HomePageContentContainer, TitleTextStyled} from '../../components/Home/Home.styled';
 import HomeBackground from '../../components/Home/HomeBackground';
+import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
 
 
 const HomePage: React.FunctionComponent<{}> = props => {
 
     return (
       <>
-        <TitleTextContainer>
+        <HomePageContentContainer>
+          <NavigationBar/>
           <TitleTextStyled>Hello, I'm Irina Zotova. I'm Frontend Developer</TitleTextStyled>
-        </TitleTextContainer>
+            <div />
+        </HomePageContentContainer>
         <HomeBackground />
       </>
     );

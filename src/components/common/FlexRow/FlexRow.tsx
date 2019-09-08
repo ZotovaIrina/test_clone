@@ -27,11 +27,11 @@ const FlexRow = styled.div<IFlex>`
       width: ${props => getWidthValue(props.width)};
       
       & > * {
-      margin-left: 16px;
+      margin-left: ${props => props.theme.spacing.gap};
       }
       
       & > *:first-child {
-      margin: 0;
+      margin-left: 0;
       }
 `;
 
