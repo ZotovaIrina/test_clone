@@ -6,14 +6,9 @@ import {Dispatch} from 'redux';
 import IMyResume from '../../configs/resume/MyResume';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import ResumePage, {IResumePage} from './ResumePage';
-import {setLanguage} from '../../store/language/languageDispatch';
 
 const mapStateToProps = (state: IStore) => ({
-  resume: getConfig(AppConfigs.myResume) as IMyResume,
-  language: {
-    language:  state.language.language,
-    onChange:  setLanguage
-  }
+  resume: getConfig(AppConfigs.myResume) as IMyResume
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -27,7 +22,7 @@ export class ResumeContainer extends React.Component<IResumePage> {
 
   render(){
     return (
-      <ResumePage resume={this.props.resume} language={this.props.language} />
+      <ResumePage resume={this.props.resume} />
     );
   }
 }

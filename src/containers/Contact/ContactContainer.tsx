@@ -5,13 +5,8 @@ import {submitContactMeForm, updateContactMeForm} from '../../store/contactForm/
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import IContactMe from '../../configs/formConfigs/contactMe';
 import React from 'react';
-import {setLanguage} from '../../store/language/languageDispatch';
 
 const mapStateToProps = (state: IStore) => ({
-  language: {
-    language:  state.language.language,
-    onChange:  setLanguage
-  },
   contactForm: {
     formData: state.contactForm.formData,
     formError: state.contactForm.formError,
@@ -28,7 +23,6 @@ export class ContactContainer extends React.Component<IContactMePage> {
     return (
       <ContactMe
         contactForm={this.props.contactForm}
-        language={this.props.language}
       />
     );
   }

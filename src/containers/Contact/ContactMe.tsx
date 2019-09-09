@@ -1,18 +1,16 @@
 import React from 'react';
 import ContactForm, {IContactFormProps} from '../../components/contactMe/contactForm';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
-import {IChooseLanguage} from '../../components/common/ChooseLanguage/ChooseLanguage';
 
 export interface IContactMePage {
-  contactForm: IContactFormProps,
-  language: IChooseLanguage
+  contactForm: IContactFormProps
 }
 
 const ContactMe: React.FunctionComponent<IContactMePage> = props => {
   console.log(props);
   return (
     <>
-      <NavigationBar {...props.language}/>
+      <NavigationBar/>
       <h1>Contact Me</h1>
       <ContactForm
         formData={props.contactForm.formData}

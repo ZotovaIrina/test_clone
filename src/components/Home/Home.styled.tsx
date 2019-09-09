@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import {H1} from '../../style/Text.styled';
-
-
+import {H1} from '../common/Text/Text.styled';
 
 export const HomePageContentContainer = styled.div`
 position: absolute;

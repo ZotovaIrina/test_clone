@@ -2,11 +2,15 @@ import lodash from 'lodash';
 
 export enum AppConfigs {
   contactMe = 'contactMe',
-  myResume = 'myResume'
+  myResume = 'myResume',
+  en = 'en',
+  rus = 'rus'
 }
 const configs = {
   contactMe: require('./formConfigs/contactMe.json'),
-  myResume: require('./resume/MyResume.json')
+  myResume: require('./resume/MyResume.json'),
+  en: require('./dictionary/En.json'),
+  rus: require('./dictionary/Rus.json')
 };
 
 export default function(config: AppConfigs, path?: string, updateConfig?: object): object {

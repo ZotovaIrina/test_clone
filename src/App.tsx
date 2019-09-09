@@ -10,10 +10,13 @@ import ResumeContainer from './containers/ResumePage/ResumeContainer';
 import './style/fonts.scss';
 import {ThemeProvider} from 'styled-components';
 import {theme} from './style/Theme';
+import ContextProvider from './store/language/languageContext';
 
 const App: React.FC = () => {
+
   return (
     <Provider store={store}>
+      <ContextProvider>
       <Router history={H.createBrowserHistory()}>
         <ThemeProvider theme={theme}>
         <>
@@ -24,6 +27,7 @@ const App: React.FC = () => {
         </>
         </ThemeProvider>
       </Router>
+      </ContextProvider>
     </Provider>
   );
 };
