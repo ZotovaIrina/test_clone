@@ -20,25 +20,25 @@ font-family: RegularFont;
 `;
 
 export const Text: React.FC<IText> = props => {
-  return <TextStyled>
+  return <TextStyled className={props.className}>
     <TextComponent {...props}/>
   </TextStyled>
 };
 
 export const BoldText: React.FC<IText> = props => {
-  return <BoldTextStyled>
+  return <BoldTextStyled className={props.className}>
     <TextComponent {...props}/>
   </BoldTextStyled>
 };
 
 export const ItalicText: React.FC<IText> = props => {
-  return <ItalicTextStyled>
+  return <ItalicTextStyled className={props.className}>
     <TextComponent {...props}/>
   </ItalicTextStyled>
 };
 
 export const H1: React.FC<IText> = props => {
-  return <H1Styled>
+  return <H1Styled className={props.className}>
     <TextComponent {...props}/>
   </H1Styled>
 };

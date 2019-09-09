@@ -11,7 +11,7 @@ const HomePage: React.FunctionComponent<IHomePage> = props => {
     <>
       <HomePageContentContainer>
         <NavigationBar />
-        <TitleTextStyled textId={'myName'}/>
+        <TitleTextStyled data-id="TitleTextStyled" textId={'myName'}/>
         <div/>
       </HomePageContentContainer>
       <HomeBackground/>
