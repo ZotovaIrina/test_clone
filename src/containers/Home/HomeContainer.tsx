@@ -2,25 +2,29 @@ import React from 'react';
 import {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
 import {Dispatch} from 'redux';
-import HomePage from './HomePage';
+import HomePage, {IHomePage} from './HomePage';
+import {setLanguage} from '../../store/language/languageDispatch';
 
-const mapStateToProps = (state: IStore) => ({
+const mapStateToProps = (state: IStore, dispatch: Dispatch) => ({
+  language: {
+    language:  state.language.language,
+    onChange:  setLanguage
+  }
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-});
-
-export class HomeContainer extends React.Component<{}> {
+export class HomeContainer extends React.Component<IHomePage> {
 
   render(){
     return (
-      <HomePage />
+      <HomePage language={{
+        language: this.props.language.language,
+        onChange: this.props.language.onChange
+      }} />
     );
   }
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(HomeContainer);
 

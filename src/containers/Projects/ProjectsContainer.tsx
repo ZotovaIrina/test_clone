@@ -7,13 +7,18 @@ import {setVisibilityFilterAction} from '../../store/resume/resumeActions';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import IMyResume from '../../configs/resume/MyResume';
 import {Dispatch} from 'redux';
+import {setLanguage} from '../../store/language/languageDispatch';
 
 const config = getConfig(AppConfigs.myResume) as IMyResume;
 
 const mapStateToProps = (state: IStore) => ({
   projects: state.myResume.projects,
   projectFilter: state.myResume.pageConfig.projectFilter,
-  technologies: config.summary.experience
+  technologies: config.summary.experience,
+  language: {
+    language:  state.language.language,
+    onChange:  setLanguage
+  }
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -33,6 +38,7 @@ export class ProjectsContainer extends React.Component<IProjectsPage> {
         technologies={this.props.technologies}
         projectFilter={this.props.projectFilter}
         setProjectsFilter={this.props.setProjectsFilter}
+        language={this.props.language}
       />
     );
   }

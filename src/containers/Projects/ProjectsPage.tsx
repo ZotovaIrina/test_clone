@@ -6,12 +6,14 @@ import Button from '../../components/common/Button/Button.styles';
 import {AddRemoveAnimation} from '../../components/common/Animation/AddRemoveAnimation.styled';
 import {ProjectsRowStyled} from './ProjectsPage.styled';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
+import {IChooseLanguage} from '../../components/common/ChooseLanguage/ChooseLanguage';
 
 export interface IProjectsPage {
   projects: IProject[],
   projectFilter: string | null,
   technologies: string[],
   setProjectsFilter: (filter: string | null) => void
+  language: IChooseLanguage
 }
 
 const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
@@ -26,7 +28,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
 
   return (
     <div>
-      <NavigationBar/>
+      <NavigationBar {...props.language}/>
       <h1>Projects</h1>
       <div>
         <h3>Technologies:</h3>

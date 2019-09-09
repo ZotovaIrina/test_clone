@@ -13,11 +13,11 @@ import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
 import {BoldText, ItalicText} from '../../../style/Text.styled';
 import DateStartEnd from '../DateStartEnd/DateStartEnd';
 
-export interface IResumePage {
+export interface IResume {
   resume: IMyResume
 }
 
-const Resume: React.FunctionComponent<IResumePage> = props => {
+const Resume: React.FunctionComponent<IResume> = props => {
 
   return (
     <ResumeContainerStyled data-id="ResumeContainerStyled">

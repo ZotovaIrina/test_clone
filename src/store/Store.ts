@@ -2,6 +2,7 @@ import {combineReducers, createStore, applyMiddleware, compose} from 'redux';
 import ContactFormReducer, {IContactMeStore} from './contactForm/contactFormReducer';
 import thunk from 'redux-thunk';
 import ResumeReducer, {IResumeStore} from './resume/resumeReducer';
+import LanguageReducer, {ILanguageStore} from './language/languageReducer';
 
 declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any; }
@@ -9,12 +10,14 @@ declare global {
 
 export interface IStore {
   contactForm: IContactMeStore,
-  myResume: IResumeStore
+  myResume: IResumeStore,
+  language: ILanguageStore
 }
 
 const reducer = combineReducers({
   contactForm: ContactFormReducer,
-  myResume: ResumeReducer
+  myResume: ResumeReducer,
+  language: LanguageReducer
 });
 
 const errorLog = (store: any) => (next: any) => (action: any) => {
