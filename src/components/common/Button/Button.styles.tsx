@@ -2,16 +2,28 @@ import styled from 'styled-components';
 import React from 'react';
 
 interface IButtonType extends React.HTMLProps<HTMLButtonElement>{
-  backgroundSrc?: string
+  active?: boolean;
+  backgroundSrc?: string;
 }
 
-const Button = styled.button<{}>`
+const Button = styled.button<{active?: boolean}>`
+width: 100%;
+position: relative;
+font-family: 'BoldFont', sans-serif;
+padding: ${props => props.theme.spacing.gapValue/2}${props => props.theme.spacing.gapUnit}  ${props => props.theme.spacing.gap};
+background-color: ${props => props.active ? props.theme.colors.secondary : props.theme.colors.primary};
+border: none;
+color: white;
+box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
+border-radius: ${props => props.theme.spacing.gapValue/4}${props => props.theme.spacing.gapUnit};
+
+&:focus {outline:0;}
 `;
 
 export const ImageButton:React.FC<IButtonType> = props => {
   return(
     <ImageButtonContainer data-id="ImageButtonContainer">
-      <ImageButtonStyled  backgroundSrc={props.backgroundSrc}/>
+      <ImageButtonStyled  backgroundSrc={props.backgroundSrc} onClick={props.onClick}/>
     </ImageButtonContainer>
   )
 };
@@ -30,12 +42,13 @@ export const ImageButtonStyled = styled.button<IButtonType>`
   top:0;
   right: 0;
   border: 1px solid ${props => props.theme.colors.darkPrimary};
-  box-shadow: inset -2px -2px ${props => props.theme.size.largeValue/4}px ${props => props.theme.colors.darkPrimary}, 10px 10px 20px ${props => props.theme.colors.darkPrimary}, inset 0px 0px 10px ${props => props.theme.colors.darkPrimary};
+  box-shadow: 10px 10px 20px ${props => props.theme.colors.darkPrimary}, inset 0px 0px 10px ${props => props.theme.colors.darkPrimary};
   display: inline-block;
   margin: 5%;
+  background-image: url(${(props: IButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
+  background-size: cover;
   
-background-image: url(${(props: IButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
-background-size: cover;
+  &:focus {outline:0;}
   
   &:after {
   background-color: rgba(255, 255, 255, 0.3);

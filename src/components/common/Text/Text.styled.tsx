@@ -19,6 +19,14 @@ const H1Styled = styled.h1`
 font-family: RegularFont;
 `;
 
+const H2Styled = styled.h1`
+font-family: RegularFont;
+`;
+
+const H3Styled = styled.h1`
+font-family: RegularFont;
+`;
+
 export const Text: React.FC<IText> = props => {
   return <TextStyled className={props.className}>
     <TextComponent {...props}/>
@@ -41,4 +49,16 @@ export const H1: React.FC<IText> = props => {
   return <H1Styled className={props.className}>
     <TextComponent {...props}/>
   </H1Styled>
+};
+
+export const H2: React.FC<IText> = props => {
+  return <H2Styled className={props.className}>
+    <TextComponent {...props}/>
+  </H2Styled>
+};
+
+export const H3: React.FC<IText> = props => {
+  return <H3Styled className={props.className}>
+    <TextComponent {...props}/>
+  </H3Styled>
 };
