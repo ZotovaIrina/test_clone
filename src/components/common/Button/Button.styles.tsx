@@ -1,20 +1,10 @@
 import styled from 'styled-components';
 
-export enum ButtonType {
-  circle = 'circle'
-}
-
 interface IButtonType {
-  type?: ButtonType,
   backgroundSrc?: string
 }
 
-const Button = styled.button<IButtonType>`
-position: relative;
-border-radius: 50%;
-width: 100%;
-background-image: url(${(props: IButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
-background-size: cover;
+const Button = styled.button<{}>`
 `;
 
 export const ImageButton = styled.button<IButtonType>`
