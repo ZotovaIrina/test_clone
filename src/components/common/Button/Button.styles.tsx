@@ -1,17 +1,34 @@
 import styled from 'styled-components';
+import React from 'react';
 
-interface IButtonType {
+interface IButtonType extends React.HTMLProps<HTMLButtonElement>{
   backgroundSrc?: string
 }
 
 const Button = styled.button<{}>`
 `;
 
-export const ImageButton = styled.button<IButtonType>`
-  height: ${props => props.theme.size.large};
-  width: ${props => props.theme.size.large};
+export const ImageButton:React.FC<IButtonType> = props => {
+  return(
+    <ImageButtonContainer data-id="ImageButtonContainer">
+      <ImageButtonStyled  backgroundSrc={props.backgroundSrc}/>
+    </ImageButtonContainer>
+  )
+};
+
+const ImageButtonContainer = styled.div`
+width: 100%;
+padding-bottom: 100%;
+position: relative;
+`;
+
+export const ImageButtonStyled = styled.button<IButtonType>`
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
+  top:0;
+  right: 0;
   border: 1px solid ${props => props.theme.colors.darkPrimary};
   box-shadow: inset -2px -2px ${props => props.theme.size.largeValue/4}px ${props => props.theme.colors.darkPrimary}, 10px 10px 20px ${props => props.theme.colors.darkPrimary}, inset 0px 0px 10px ${props => props.theme.colors.darkPrimary};
   display: inline-block;
