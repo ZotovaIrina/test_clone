@@ -10,7 +10,7 @@ z-index: 100;
 
 `;
 
-export const NavigationBarContainer= styled.div<{}>`
+export const NavigationBarContainer = styled.div<{}>`
 display: flex;
 align-items: center;
 justify-content: space-between;

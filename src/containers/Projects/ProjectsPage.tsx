@@ -2,11 +2,11 @@ import React from 'react';
 import IProject from '../../configs/resume/projects';
 import ProjectsComponent from '../../components/Projects/ProjectsComponent/ProjectComponent';
 import {v4 as uuid} from 'uuid';
-import Button from '../../components/common/Button/Button.styles';
+import {Button} from '../../components/common/Button/Button.styles';
 import {AddRemoveAnimation} from '../../components/common/Animation/AddRemoveAnimation.styled';
 import {ProjectPageStyled, ProjectsRowStyled} from './ProjectsPage.styled';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
-import {H1, H3} from '../../components/common/Text/Text.styled';
+import {H3} from '../../components/common/Text/Text.styled';
 import GridRow from '../../components/common/GridRow/GridRow';
 
 export interface IProjectsPage {
@@ -30,15 +30,12 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
     <>
       <NavigationBar/>
       <ProjectPageStyled data-id="ProjectPageStyled">
-        <H1>Projects</H1>
-        <div>
-          <H3>Technologies:</H3>
+          <H3 textId="technologies" />
           <GridRow columns={8}>
             <Button
               active={!props.projectFilter}
-              onClick={e => props.setProjectsFilter(null)}>
-              Show All
-            </Button>
+              textId="showAll"
+              onClick={e => props.setProjectsFilter(null)}/>
             {props.technologies.map(technology =>
               <Button
                 key={technology}
@@ -48,6 +45,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
               </Button>
             )}
           </GridRow>
+        <H3 textId="projects"/>
           <ProjectsRowStyled data-id="ProjectsRowStyled">
             {
               props.projects
@@ -58,8 +56,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
                   </AddRemoveAnimation>
                 )
             }
-          </ProjectsRowStyled>
-        </div>
+          </ProjectsRowStyled>¬
       </ProjectPageStyled>
     </>
 

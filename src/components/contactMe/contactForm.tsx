@@ -4,7 +4,7 @@ import AreaInput from '../common/AreaInput/AreaInput';
 import ContactInformation from '../../types/ContactInformation';
 import PhoneInput from '../common/PhoneInput/PhoneInput';
 import {ValidationType} from '../../utils/validation/validator/validator';
-import Button from '../common/Button/Button.styles';
+import {Button} from '../common/Button/Button.styles';
 import IContactMe from '../../configs/formConfigs/contactMe';
 import {IContactFormPageConfig} from '../../store/contactForm/contactFormReducer';
 import Toggle from '../common/Toggle/Toggle';
@@ -76,7 +76,7 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
               }}
               onChange={value => onFormChange('contactByPhone', value)}/>
 
-      <Button onClick={props.onSubmit}>Submit</Button>
+      <Button onClick={props.onSubmit} textId="submit" />
     </>
   )
 };

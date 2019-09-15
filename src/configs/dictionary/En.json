@@ -1,3 +1,10 @@
 {
-  "myName": "Hello, I'm Irina Zotova. I'm Frontend Developer"
+  "myName": "Hello, I'm Irina Zotova. I'm Frontend Developer",
+  "home": "Home",
+  "projects": "Projects",
+  "myResume": "My Resume",
+  "contactMe": "Contacts",
+  "technologies": "Technologies",
+  "showAll": "Show All",
+  "submit": "Submit"
 }

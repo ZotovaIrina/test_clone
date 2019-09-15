@@ -1,15 +1,29 @@
 import styled from 'styled-components';
 import React from 'react';
+import {BoldText} from '../Text/Text.styled';
 
-interface IButtonType extends React.HTMLProps<HTMLButtonElement>{
+interface IImageButtonType extends React.HTMLProps<HTMLButtonElement>{
   active?: boolean;
   backgroundSrc?: string;
 }
+interface IButtonType extends React.HTMLProps<HTMLButtonElement>{
+  active?: boolean;
+  textId?: string;
+}
 
-const Button = styled.button<{active?: boolean}>`
+export const Button: React.FC<IButtonType> = props => {
+  return(
+    <ButtonStyled onClick={props.onClick} active={props.active}>
+      <BoldText textId={props.textId}>
+        {props.children}
+      </BoldText>
+    </ButtonStyled>
+  )
+};
+
+const ButtonStyled = styled.button<{active?: boolean, textId?: string}>`
 width: 100%;
 position: relative;
-font-family: 'BoldFont', sans-serif;
 padding: ${props => props.theme.spacing.gapValue/2}${props => props.theme.spacing.gapUnit}  ${props => props.theme.spacing.gap};
 background-color: ${props => props.active ? props.theme.colors.secondary : props.theme.colors.primary};
 border: none;
@@ -20,7 +34,7 @@ border-radius: ${props => props.theme.spacing.gapValue/4}${props => props.theme.
 &:focus {outline:0;}
 `;
 
-export const ImageButton:React.FC<IButtonType> = props => {
+export const ImageButton:React.FC<IImageButtonType> = props => {
   return(
     <ImageButtonContainer data-id="ImageButtonContainer">
       <ImageButtonStyled  backgroundSrc={props.backgroundSrc} onClick={props.onClick}/>
@@ -34,7 +48,7 @@ padding-bottom: 100%;
 position: relative;
 `;
 
-export const ImageButtonStyled = styled.button<IButtonType>`
+export const ImageButtonStyled = styled.button<IImageButtonType>`
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -45,7 +59,7 @@ export const ImageButtonStyled = styled.button<IButtonType>`
   box-shadow: 10px 10px 20px ${props => props.theme.colors.darkPrimary}, inset 0px 0px 10px ${props => props.theme.colors.darkPrimary};
   display: inline-block;
   margin: 5%;
-  background-image: url(${(props: IButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
+  background-image: url(${(props: IImageButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
   background-size: cover;
   
   &:focus {outline:0;}
@@ -61,6 +75,3 @@ export const ImageButtonStyled = styled.button<IButtonType>`
   border-radius: 50%;
   transform: rotate(40deg);
 `;
-
-
-export default Button;
