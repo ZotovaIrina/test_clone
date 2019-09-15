@@ -21,6 +21,8 @@ export const NavigationBarItem = styled(NavLink)`
 color: white;
 text-decoration: none;
 font-family: 'BoldFont', sans-serif;
+text-transform: uppercase;
+letter-spacing: 1px;
 &.active {
     color: ${props => props.theme.colors.secondary};
   }
