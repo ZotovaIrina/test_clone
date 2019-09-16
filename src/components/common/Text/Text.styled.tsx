@@ -27,9 +27,9 @@ const H3Styled = styled.h1`
 font-family: RegularFont;
 `;
 
-export const Text: React.FC<IText> = props => {
+export const TextTranslate: React.FC<IText> = props => {
   return <TextStyled className={props.className}>
-    <TextComponent {...props}/>
+    <TextComponent {...props}>{props.children}</TextComponent>
   </TextStyled>
 };
 

@@ -13,7 +13,10 @@ const TextComponent: React.FunctionComponent<IText> = props => {
 
   return (
     <>
-      {props.textId ? getConfig(AppConfigs[language.language], props.textId) : props.children}
+      {props.textId && typeof getConfig(AppConfigs[language.language], props.textId) === 'string' ?
+        `${getConfig(AppConfigs[language.language], props.textId)}${props.children ? props.children : ''}` :
+        props.children
+      }
     </>
   )
 

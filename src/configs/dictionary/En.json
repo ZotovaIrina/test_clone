@@ -6,5 +6,11 @@
   "contactMe": "Contacts",
   "technologies": "Technologies",
   "showAll": "Show All",
-  "submit": "Submit"
+  "submit": "Submit",
+  "name": "Name",
+  "company": "Company",
+  "phone": "Phone",
+  "email": "E-mail",
+  "yourMessage": "Your message",
+  "usePhone": "Contact by phone instead of email"
 }

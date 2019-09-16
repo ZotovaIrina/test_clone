@@ -1,7 +1,7 @@
 {
   "name": {
     "formCell": {
-      "label": "Name",
+      "label": "name",
       "isRequired": true
     },
     "value": "name",
@@ -9,7 +9,7 @@
   },
   "companyName": {
     "formCell": {
-      "label": "Company",
+      "label": "company",
       "isRequired": true
     },
     "value": "companyName",
@@ -17,7 +17,7 @@
   },
   "phone": {
     "formCell": {
-      "label": "Phone",
+      "label": "phone",
       "isRequired": "formData.contactByPhone"
     },
     "value": "phone",
@@ -25,7 +25,7 @@
   },
   "email": {
     "formCell": {
-      "label": "Email",
+      "label": "email",
       "isRequired": true
     },
     "value": "email",
@@ -33,7 +33,7 @@
   },
   "message": {
     "formCell": {
-      "label": "Your message",
+      "label": "yourMessage",
       "isRequired": true
     },
     "value": "message",
@@ -41,7 +41,7 @@
   },
   "contactByPhone": {
     "formCell": {
-      "label": "Use phone number instead of email",
+      "label": "usePhone",
       "isRequired": false
     },
     "value": "contactByPhone",
