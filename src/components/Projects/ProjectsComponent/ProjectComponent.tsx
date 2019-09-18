@@ -1,5 +1,4 @@
 import React from 'react';
-import IProject from '../../../configs/resume/projects';
 import getImage from '../../../utils/getImage';
 import {v4 as uuid} from 'uuid';
 import {
@@ -8,6 +7,7 @@ import {
   ProjectImageStyled
 } from './ProjectComponent.styles';
 import LazyLoad from 'react-lazyload';
+import {IProject} from '../../../configs/resume/MyResume';
 
 
 interface IProjectComponent {
@@ -19,7 +19,7 @@ const ProjectsComponent: React.FunctionComponent<IProjectComponent> = props => {
     <ProjectContainerStyled data-id="ProjectContainerStyled">
       <ProjectDescriptionStyled data-id="ProjectDescriptionStyled">
         <h3>{props.project.name}</h3>
-        {props.project.description.map((item: string) => (
+        {props.project.description.value.map((item: string) => (
           <p key={uuid()}>{item}</p>
         ))}
       </ProjectDescriptionStyled>

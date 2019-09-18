@@ -1,30 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {IStore} from '../../store/Store';
 import {connect} from 'react-redux';
-import {initProjects} from '../../store/resume/resumeDispatch';
 import {Dispatch} from 'redux';
 import IMyResume from '../../configs/resume/MyResume';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import ResumePage, {IResumePage} from './ResumePage';
+import {MyContext} from '../../store/language/languageContext';
+import {Language} from '../../types/Languages';
 
 const mapStateToProps = (state: IStore) => ({
-  resume: getConfig(AppConfigs.myResume) as IMyResume
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
-export class ResumeContainer extends React.Component<IResumePage> {
-  constructor(props: IResumePage) {
-    super(props);
-    initProjects();
-  }
+export const ResumeContainer:React.FC<IResumePage> = props => {
+  const context = useContext(MyContext);
 
-  render(){
+  const resume = getConfig(context.language === Language.english ? AppConfigs.myResume : AppConfigs.myResumerus) as IMyResume;
+
     return (
-      <ResumePage resume={this.props.resume} />
+      <ResumePage resume={resume} />
     );
-  }
 }
 
 export default connect(

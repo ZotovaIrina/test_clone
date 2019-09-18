@@ -12,5 +12,6 @@
   "phone": "Phone",
   "email": "E-mail",
   "yourMessage": "Your message",
-  "usePhone": "Contact by phone instead of email"
+  "usePhone": "Contact by phone instead of email",
+  "present": "Present"
 }

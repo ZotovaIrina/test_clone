@@ -1,21 +1,20 @@
-import IProject from './projects';
-
 export default interface IMyResume {
   title: string;
-  contacts: object;
+  contacts: ILabelValue[];
   summary: IResumeSummary;
-  projects: IProject[];
+  projects: IProjectData;
   education: IEducation
 }
 
 export interface IResumeSummary {
-  experience: string[];
-  familiar: string[];
+  label: string;
+  experience: IResumeArrayString;
+  familiar: IResumeArrayString;
 }
 
 export interface IEducation {
-  degree: IEducationDetails[];
-  courses: IEducationDetails[];
+  degree: IEducationData;
+  courses: IEducationData;
 }
 
 export interface IEducationDetails {
@@ -23,4 +22,37 @@ export interface IEducationDetails {
   endYear: string;
   title: string;
   url?: string;
+}
+
+export interface IProject {
+  name: string;
+  image: string,
+  notSoftwareProject?: boolean;
+  start: string;
+  end: string;
+  position: string;
+  address: string;
+  website: string[];
+  description: IResumeArrayString;
+  technologies?: IResumeArrayString;
+}
+
+interface IResumeArrayString {
+  label: string;
+  value: string[]
+}
+
+interface IEducationData {
+  label: string;
+  value: IEducationDetails[]
+}
+
+interface IProjectData {
+  label: string;
+  value: IProject[]
+}
+
+interface ILabelValue {
+  label: string;
+  value: string
 }

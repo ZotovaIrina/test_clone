@@ -1,0 +1,215 @@
+{
+  "title": "Frontend Developer",
+  "contacts":[
+    {
+      "label": "E-mail",
+      "value": "zotovaforjob@gmail.com"
+    },
+    {
+      "label": "Location",
+      "value": "Edison, NJ"
+    },
+    {
+      "label": "Git",
+      "value": "http://www.github.com/ZotovaIrina"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "http://www.linkedin.com/in/irina-zotova-1468b9104"
+    }
+  ],
+  "summary": {
+    "label": "Summary",
+    "experience": {
+      "label": "Technical Skills",
+      "value": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Redux",
+        "Mobx",
+        "AngularJS",
+        "Bootstrap",
+        "Angular Material",
+        "Webpack",
+        "Gulp",
+        "Ionic",
+        "Cordova"
+      ]
+    },
+    "familiar": {
+      "label": "Familiar",
+      "value": [
+        "VueJS",
+        "jQuery",
+        "Kotlin",
+        "Ruby on Rail"
+      ]
+    }
+  },
+  "projects": {
+    "label": "Experience",
+    "value": [
+      {
+        "name": "Spruce",
+        "image": "spruce.jpg",
+        "start": "2018-04-04",
+        "end": "Present",
+        "position": "Software Engineer",
+        "address": "New York, NY",
+        "website": [
+          "spruce.co"
+        ],
+        "description": {
+          "label": "Responsibilities",
+          "value": [
+            "Develop UI for web application",
+            "Refactoring from SCSS to Styled Components",
+            "Migration from Ruby on Rails to React application",
+            "Create UI with different technologies: Typescript + React; Mobx, Redux and React Context API for state management, Kotlin.JS",
+            "Create HTML/SCSS template for PDF documents generation"
+          ]
+        },
+        "technologies": {
+          "label": "Technologies",
+          "value": [
+            "TypeScript",
+            "React",
+            "Redux",
+            "Mobx",
+            "React Context API",
+            "Styled components",
+            "Jest",
+            "SCSS",
+            "Webpack",
+            "Kotlin",
+            "Ruby on Rails"
+          ]
+        }
+      },
+      {
+        "name": "EffectiveSoft",
+        "image": "calendar.jpg",
+        "start": "2016-08-08",
+        "end": "2017-08-08",
+        "position": "UI Developer",
+        "address": "Minsk, Belarus",
+        "website": [
+          "https://play.google.com/store/apps/details?id=com.lbrc.PeriodCalendar",
+          "https://play.google.com/store/apps/details?id=com.brc.PeriodTrackerDiary",
+          "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1032267351?mt=8",
+          "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1064911742?mt=8"
+        ],
+        "description": {
+          "label": "Responsibilities",
+          "value": [
+            "Developing UI for hybrid mobile application using Cordova, JavaScript, AngularJS, HTML, SCSS, jQuery",
+            "Using Gulp for building frontend part",
+            "Using media-queries for implementing responsive design",
+            "Create unit tests using Jasmine",
+            "Cross platform development iOS, Android"
+          ]
+        },
+        "technologies": {
+          "label": "Technologies",
+          "value": [
+            "Cordova",
+            "JavaScript",
+            "AngularJS",
+            "jQuery",
+            "HTML",
+            "SCSS",
+            "Gulp",
+            "Jasmine",
+            "Git"
+          ]
+        }
+      },
+      {
+        "name": "freelance",
+        "image": "EP.jpg",
+        "start": "2015-04-04",
+        "end": "2016-08-08",
+        "position": "JavaScript Developer",
+        "address": "Chelyabinsk, Russia",
+        "website": [
+          "http://vzlobin.ru/",
+          "https://embroidery-pattern.herokuapp.com"
+        ],
+        "description": {
+          "label": "Responsibilities",
+          "value": [
+            "Developing UI using JavaScript, AngularJS, HTML, CSS, jQuery",
+            "Using Grunt for building frontend part",
+            "Doing module architecture using Browserify",
+            "Using media-queries for implementing responsive design",
+            "Developing admin panel using Node.js, Express, imagemagick, HTML, CSS, SASS, Bootstrap, AngularJS",
+            "Developing hybrid mobile app using Ionic, Cordova, AngularJS."
+          ]
+        },
+        "technologies": {
+          "label": "Technologies",
+          "value": [
+            "JavaScript",
+            "AngularJS",
+            "Bootstrap",
+            "Angular Material",
+            "jQuery",
+            "HTML",
+            "CSS",
+            "Grunt",
+            "Cordova",
+            "Ionic",
+            "Node.js",
+            "Express.js",
+            "Imagemagick",
+            "Browserify",
+            "Git"
+          ]
+        }
+      },
+      {
+        "name": "Elmetro LLC",
+        "notSoftwareProject": true,
+        "start": "2008-09-01",
+        "end": "2012-01-01",
+        "position": "Electrical Engineer",
+        "address": "Chelyabinsk, Russia",
+        "website": [
+          "https://elmetro.ru"
+        ],
+        "description": {
+          "label": "Description",
+          "value": [
+            "Designed electrical devices using 3D CAD systems",
+            "Designed PCBs",
+            "Elaboration of the designing documentation"
+          ]
+        }
+      }
+    ]
+  },
+  "education": {
+    "degree": {
+      "label": "Degree",
+      "value": [
+        {
+          "startYear": "2005",
+          "endYear": "2010",
+          "title": "BS in Electrical Engineering, South Ural State University, Chelyabinsk, Russia"
+        }
+      ]
+    },
+    "courses": {
+      "label": "Courses",
+      "value": [
+        {
+          "startYear": "2015",
+          "endYear": "2016",
+          "title": "Full Stack Web Development, Coursera",
+          "url": "https://www.coursera.org/account/accomplishments/specialization/7G7MHNFDP69S"
+        }
+      ]
+    }
+  }
+}

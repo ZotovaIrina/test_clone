@@ -33,58 +33,58 @@ const Resume: React.FunctionComponent<IResume> = props => {
         <tr>
           <td>
             <ResumeRowStyled data-id="ResumeRowStyled contacts">
-              {Object.keys(props.resume.contacts).map(contact => (
-                <ContactRow key={contact}>
-                  <span>{contact}: </span>
-                  {(props.resume.contacts[contact] as string).includes('www') ?
+              {props.resume.contacts.map(contact => (
+                <ContactRow key={contact.label}>
+                  <span>{contact.label}: </span>
+                  {contact.value.includes('www') ?
                     <OpenLinkInNewTab
-                      link={props.resume.contacts[contact]}>{props.resume.contacts[contact]}</OpenLinkInNewTab> :
-                    <span>{props.resume.contacts[contact]}</span>}
+                      link={contact.value}>{contact.value}</OpenLinkInNewTab> :
+                    <span>{contact.value}</span>}
                 </ContactRow>
               ))}
             </ResumeRowStyled>
 
             <ResumeRowStyled data-id="ResumeRowStyled summary">
-              <ResumeH2 data-id={'ResumeH2'}>Summary</ResumeH2>
+              <ResumeH2 data-id={'ResumeH2'}>{props.resume.summary.label}</ResumeH2>
               <SummaryRow data-id={'SummaryRow'}>
-                <ItalicText>Technical Skills: </ItalicText>
-                <span>{props.resume.summary.experience.join(', ')}</span>
+                <ItalicText>{props.resume.summary.experience.label}: </ItalicText>
+                <span>{props.resume.summary.experience.value.join(', ')}</span>
               </SummaryRow>
               <SummaryRow data-id={'SummaryRow'}>
-                <ItalicText>Familiar with: </ItalicText>
-                <span>{props.resume.summary.familiar.join(', ')}</span>
+                <ItalicText>{props.resume.summary.familiar.label}: </ItalicText>
+                <span>{props.resume.summary.familiar.value.join(', ')}</span>
               </SummaryRow>
             </ResumeRowStyled>
 
-            <ResumeH2 data-id={'ResumeH2'}>Experience</ResumeH2>
+            <ResumeH2 data-id={'ResumeH2'}>{props.resume.projects.label}</ResumeH2>
             {
-              props.resume.projects.map(project =>
+              props.resume.projects.value.map(project =>
                 <ResumeRowStyled key={project.name} data-id="ResumeRowStyled project">
                   <SummaryRow>
                     <DateStartEnd start={project.start} end={project.end}/>
                     <span>{project.name}, {project.position}, {project.address}</span>
                   </SummaryRow>
                   <div>
-                    <div>Responsibilities:</div>
+                    <div>{project.description.label}</div>
                     <ResumeList data-id="ResumeList">
                       {
-                        project.description.map(item => <ResumeListItem data-id="ResumeListItem"
+                        project.description.value.map(item => <ResumeListItem data-id="ResumeListItem"
                                                                         key={item}>{item}</ResumeListItem>)
                       }
                     </ResumeList>
                   </div>
                   {project.technologies ? <div>
-                    <ItalicText>Technologies: </ItalicText>
-                    <span>{project.technologies.join(', ')}</span>
+                    <ItalicText>{project.technologies.label} </ItalicText>
+                    <span>{project.technologies.value.join(', ')}</span>
                   </div> : null}
                 </ResumeRowStyled>
               )
             }
 
             <ResumeRowStyled data-id="ResumeRowStyled courses">
-              <ResumeH2>Courses</ResumeH2>
+              <ResumeH2>{props.resume.education.courses.label}</ResumeH2>
               {
-                props.resume.education.courses.map(course =>
+                props.resume.education.courses.value.map(course =>
                   <EducationRow key={course.title}>
                     <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>
@@ -95,9 +95,9 @@ const Resume: React.FunctionComponent<IResume> = props => {
             </ResumeRowStyled>
 
             <ResumeRowStyled data-id="ResumeRowStyled education">
-              <ResumeH2>Education</ResumeH2>
+              <ResumeH2>{props.resume.education.degree.label}</ResumeH2>
               {
-                props.resume.education.degree.map(course =>
+                props.resume.education.degree.value.map(course =>
                   <EducationRow key={course.title}>
                     <BoldText>{course.startYear} - {course.endYear}</BoldText>
                     <span>{course.title}</span>

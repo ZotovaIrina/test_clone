@@ -1,5 +1,4 @@
 import React from 'react';
-import IProject from '../../configs/resume/projects';
 import ProjectsComponent from '../../components/Projects/ProjectsComponent/ProjectComponent';
 import {v4 as uuid} from 'uuid';
 import {Button} from '../../components/common/Button/Button.styles';
@@ -8,6 +7,7 @@ import {ProjectPageStyled, ProjectsRowStyled} from './ProjectsPage.styled';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
 import {H3} from '../../components/common/Text/Text.styled';
 import GridRow from '../../components/common/GridRow/GridRow';
+import {IProject} from '../../configs/resume/MyResume';
 
 export interface IProjectsPage {
   projects: IProject[],
@@ -22,7 +22,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
     if (!props.projectFilter || !project.technologies) {
       return false
     } else {
-      return !project.technologies.includes(props.projectFilter)
+      return !project.technologies.value.includes(props.projectFilter)
     }
   };
 
@@ -56,7 +56,7 @@ const ProjectsPage: React.FunctionComponent<IProjectsPage> = props => {
                   </AddRemoveAnimation>
                 )
             }
-          </ProjectsRowStyled>¬
+          </ProjectsRowStyled>
       </ProjectPageStyled>
     </>
 

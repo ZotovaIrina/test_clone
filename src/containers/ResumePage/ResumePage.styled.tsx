@@ -33,7 +33,8 @@ export const SummaryRow = styled.div`
 display: grid;
 grid-gap: 8px;
 padding: 2px 0;
-grid-template-columns: 120px 1fr;
+white-space: nowrap;
+grid-template-columns: min-content 1fr;
 `;
 
 export const EducationRow = styled.div`

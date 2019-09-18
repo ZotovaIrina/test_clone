@@ -1,17 +1,14 @@
 import lodash from 'lodash';
+import configs from './config.json';
 
 export enum AppConfigs {
   contactMe = 'contactMe',
-  myResume = 'myResume',
+  myResume = 'myResumeEn',
+  myResumerus = 'myResumeRus',
   en = 'en',
   rus = 'rus'
 }
-const configs = {
-  contactMe: require('./formConfigs/contactMe.json'),
-  myResume: require('./resume/MyResume.json'),
-  en: require('./dictionary/En.json'),
-  rus: require('./dictionary/Rus.json')
-};
+
 
 export default function(config: AppConfigs, path?: string, updateConfig?: object): object {
   const value = path ? lodash.get(configs[config], path) : configs[config];
