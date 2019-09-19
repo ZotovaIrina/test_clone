@@ -2,31 +2,46 @@ import styled from 'styled-components';
 import React from 'react';
 import {BoldText} from '../Text/Text.styled';
 
-interface IImageButtonType extends React.HTMLProps<HTMLButtonElement>{
+interface IImageButton extends React.HTMLProps<HTMLButtonElement>{
   active?: boolean;
   backgroundSrc?: string;
 }
-interface IButtonType extends React.HTMLProps<HTMLButtonElement>{
+interface IButton extends React.HTMLProps<HTMLButtonElement>{
   active?: boolean;
   textId?: string;
+  type?: ButtonType;
 }
 
-export const Button: React.FC<IButtonType> = props => {
+export enum ButtonType {
+  link = 'link',
+  primary = 'primary'
+}
+
+export const Button: React.FC<IButton> = props => {
+  const type = props.type ? props.type : ButtonType.primary;
+  const ButtonComponent = type === ButtonType.link ? LinkButtonStyled : ButtonStyled;
   return(
-    <ButtonStyled onClick={props.onClick} active={props.active}>
+
+    <ButtonComponent onClick={props.onClick}  type={type} active={props.active}>
       <BoldText textId={props.textId}>
         {props.children}
       </BoldText>
-    </ButtonStyled>
+    </ButtonComponent>
   )
 };
 
-const ButtonStyled = styled.button<{active?: boolean, textId?: string}>`
+
+const BaseButtonStyled = styled.button<IButton>`
 width: 100%;
 position: relative;
 padding: ${props => props.theme.spacing.gapValue/2}${props => props.theme.spacing.gapUnit}  ${props => props.theme.spacing.gap};
-background-color: ${props => props.active ? props.theme.colors.secondary : props.theme.colors.primary};
 border: none;
+
+&:focus {outline:0;}
+`;
+
+const ButtonStyled = styled(BaseButtonStyled)<IButton>`
+background-color: ${props => props.active ? props.theme.colors.secondary : props.theme.colors.primary};
 color: white;
 box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
 border-radius: ${props => props.theme.spacing.gapValue/4}${props => props.theme.spacing.gapUnit};
@@ -34,7 +49,16 @@ border-radius: ${props => props.theme.spacing.gapValue/4}${props => props.theme.
 &:focus {outline:0;}
 `;
 
-export const ImageButton:React.FC<IImageButtonType> = props => {
+const LinkButtonStyled = styled(BaseButtonStyled)<IButton>`
+background-color: transparent;
+color: ${props => props.active ? props.theme.colors.secondary : props.theme.colors.primary};
+text-transform: uppercase;
+
+&:focus {outline:0;}
+`;
+
+
+export const ImageButton:React.FC<IImageButton> = props => {
   return(
     <ImageButtonContainer data-id="ImageButtonContainer">
       <ImageButtonStyled  backgroundSrc={props.backgroundSrc} onClick={props.onClick}/>
@@ -48,7 +72,7 @@ padding-bottom: 100%;
 position: relative;
 `;
 
-export const ImageButtonStyled = styled.button<IImageButtonType>`
+export const ImageButtonStyled = styled.button<IImageButton>`
   height: 100%;
   width: 100%;
   border-radius: 50%;
@@ -59,7 +83,7 @@ export const ImageButtonStyled = styled.button<IImageButtonType>`
   box-shadow: 10px 10px 20px ${props => props.theme.colors.darkPrimary}, inset 0px 0px 10px ${props => props.theme.colors.darkPrimary};
   display: inline-block;
   margin: 5%;
-  background-image: url(${(props: IImageButtonType) => props.backgroundSrc ? props.backgroundSrc : ''});
+  background-image: url(${(props: IImageButton) => props.backgroundSrc ? props.backgroundSrc : ''});
   background-size: cover;
   
   &:focus {outline:0;}

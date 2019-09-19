@@ -19,11 +19,11 @@ const H1Styled = styled.h1`
 font-family: RegularFont;
 `;
 
-const H2Styled = styled.h1`
+const H2Styled = styled.h2`
 font-family: RegularFont;
 `;
 
-const H3Styled = styled.h1`
+const H3Styled = styled.h3`
 font-family: RegularFont;
 `;
 

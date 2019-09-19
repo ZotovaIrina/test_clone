@@ -8,7 +8,8 @@ export const theme: ITheme = {
   spacing: {
     gap: '16px',
     gapValue: 16,
-    gapUnit: 'px'
+    gapUnit: 'px',
+    maxWidth: '1000px'
   },
   size: {
     small: '16px',
@@ -31,7 +32,8 @@ export interface ITheme {
   spacing: {
     gap: string,
     gapValue: number,
-    gapUnit: string
+    gapUnit: string,
+    maxWidth: string
   },
   size: {
     small: string,
