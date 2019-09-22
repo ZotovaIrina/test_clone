@@ -1,8 +1,8 @@
 import React from 'react';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
-import {ResumeDontPrintBlock} from './ResumePage.styled';
 import Resume from '../../components/Resume/Resume/Resume';
 import IMyResume from '../../configs/resume/MyResume';
+import GetResume from '../../components/Resume/GetResume/GetResume';
 
 export interface IResumePage {
   resume: IMyResume
@@ -11,9 +11,8 @@ export interface IResumePage {
 const ResumePage: React.FunctionComponent<IResumePage> = props => {
   return (
     <>
-      <ResumeDontPrintBlock>
-        <NavigationBar />
-      </ResumeDontPrintBlock>
+      <NavigationBar/>
+      <GetResume/>
       <Resume resume={props.resume}/>
     </>
   )

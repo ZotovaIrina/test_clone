@@ -11,12 +11,14 @@ import './style/fonts.scss';
 import {ThemeProvider} from 'styled-components';
 import {theme} from './style/Theme';
 import ContextProvider from './store/language/languageContext';
+import IconsSource from './components/common/Icon/IconsSource';
 
 const App: React.FC = () => {
 
   return (
     <Provider store={store}>
       <ContextProvider>
+        <IconsSource/>
       <Router history={H.createBrowserHistory()}>
         <ThemeProvider theme={theme}>
         <>

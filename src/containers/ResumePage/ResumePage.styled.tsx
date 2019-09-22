@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const ResumeDontPrintBlock = styled.div`
+export const PrintBlock = styled.div`
 @media print
 {    
-  display: none !important;
+  //display: none !important;
 }
 `;
 

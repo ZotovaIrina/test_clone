@@ -3,6 +3,7 @@ export const theme: ITheme = {
     lightPrimary: '#8561c5',
     primary: '#673ab7',
     darkPrimary: '#482880',
+    superDarkPrimary: '#410f55',
     secondary: '#f50057'
   },
   spacing: {
@@ -27,6 +28,7 @@ export interface ITheme {
     lightPrimary: string,
     primary: string,
     darkPrimary: string,
+    superDarkPrimary: string,
     secondary: string
   },
   spacing: {
