@@ -2,7 +2,7 @@ import React from 'react';
 import IMyResume from '../../../configs/resume/MyResume';
 import {
   ContactRow, EducationRow,
-  ResumeContainerStyled,
+  ResumeContainerPrintStyled,
   ResumeH1,
   ResumeH2,
   ResumeList, ResumeListItem,
@@ -20,7 +20,7 @@ export interface IResume {
 const Resume: React.FunctionComponent<IResume> = props => {
 
   return (
-    <ResumeContainerStyled data-id="ResumeContainerStyled">
+    <ResumeContainerPrintStyled data-id="ResumeContainerStyled">
       <table>
         <thead>
         <tr>
@@ -112,7 +112,7 @@ const Resume: React.FunctionComponent<IResume> = props => {
       </table>
 
 
-    </ResumeContainerStyled>
+    </ResumeContainerPrintStyled>
 
 
   )

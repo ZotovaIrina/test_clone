@@ -1,11 +1,9 @@
 import styled from 'styled-components';
+import {IIcon} from './Icon';
 
-interface IIconStyledProps {
-}
-
-export const IconStyled = styled.svg<IIconStyledProps>`
-  width: 100%;
-  height: 100%;
+export const IconStyled = styled.svg<IIcon>`
+  width: ${props => props.size ? props.theme.size[props.size] : '100%'};
+  height: ${props => props.size ? props.theme.size[props.size] : '100%'};
   color: ${props => props.theme.colors.superDarkPrimary};
   display: inline-flex;
   justify-content: center;

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import {IconType} from './IconType';
 import {IconStyled} from './Icon.styles';
+import {Size} from '../../../style/Theme';
 
 export interface IIcon {
   type: IconType;
+  size?: Size;
 }
 
 const UseSvg: React.FunctionComponent<IIcon> = props => {

@@ -1,4 +1,16 @@
 import styled from 'styled-components';
+import GridRow from '../../components/common/GridRow/GridRow';
+import {Card} from '../../components/common/Card/Card.styled';
+
+export const ResumePageContainer = styled(GridRow)`
+margin: ${props => props.theme.spacing.gap};
+`;
+
+export const ResumeContainerStyled = styled(Card)`
+width: 100%;
+max-width: ${props => props.theme.spacing.maxWidth};
+margin: auto;
+`;
 
 export const PrintBlock = styled.div`
 @media print
@@ -7,7 +19,7 @@ export const PrintBlock = styled.div`
 }
 `;
 
-export const ResumeContainerStyled = styled.div`
+export const ResumeContainerPrintStyled = styled.div`
 padding: 24px;
 `;
 

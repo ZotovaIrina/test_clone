@@ -1,6 +1,6 @@
 export const theme: ITheme = {
   colors: {
-    lightPrimary: '#8561c5',
+    lightPrimary: '#ede7f6',
     primary: '#673ab7',
     darkPrimary: '#482880',
     superDarkPrimary: '#410f55',
@@ -38,12 +38,18 @@ export interface ITheme {
     maxWidth: string
   },
   size: {
-    small: string,
-    smallValue: number,
-    unit: string,
-    regular: string,
-    regularValue: number,
-    large: string,
-    largeValue: number
-  }
+  small: string,
+  smallValue: number,
+  unit: string,
+  regular: string,
+  regularValue: number,
+  large: string,
+  largeValue: number
+}
+}
+
+export enum Size {
+  small = 'small',
+  regular = 'regular',
+  large = 'large'
 }
