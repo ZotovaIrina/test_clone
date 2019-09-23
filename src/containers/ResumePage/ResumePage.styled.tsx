@@ -10,17 +10,17 @@ export const ResumeContainerStyled = styled(Card)`
 width: 100%;
 max-width: ${props => props.theme.spacing.maxWidth};
 margin: auto;
+padding: ${props => props.theme.spacing.gapValue * 2}${props => props.theme.spacing.gapUnit};;
 `;
 
-export const PrintBlock = styled.div`
-@media print
-{    
-  //display: none !important;
+export const ResumeTable = styled.table`
+@media print {
+margin: 20mm;
 }
 `;
 
 export const ResumeContainerPrintStyled = styled.div`
-padding: 24px;
+
 `;
 
 export const ResumeH1 = styled.div`

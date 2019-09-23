@@ -1,13 +1,21 @@
 import React from 'react';
-import {PrintBlock} from '../../../containers/ResumePage/ResumePage.styled';
+import {GlobalPrintStyle, PrintBlock} from './Print.style';
 
-const PrintComponent:React.FC<{}> = props => {
+const PrintComponent: React.FC<{startPrint: boolean}> = props => {
+
   return (
-    <PrintBlock>
-    {
-      props.children
-    }
-    </PrintBlock>
+    <>
+      <PrintBlock>
+        {
+          props.children
+        }
+      </PrintBlock>
+      {
+        props.startPrint ?
+          <GlobalPrintStyle /> :
+          null
+      }
+    </>
   )
 };
 

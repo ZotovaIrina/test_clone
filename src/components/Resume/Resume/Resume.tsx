@@ -6,7 +6,7 @@ import {
   ResumeH1,
   ResumeH2,
   ResumeList, ResumeListItem,
-  ResumeRowStyled,
+  ResumeRowStyled, ResumeTable,
   SummaryRow
 } from '../../../containers/ResumePage/ResumePage.styled';
 import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
@@ -20,18 +20,19 @@ export interface IResume {
 const Resume: React.FunctionComponent<IResume> = props => {
 
   return (
-    <ResumeContainerPrintStyled data-id="ResumeContainerStyled">
-      <table>
-        <thead>
-        <tr>
-          <td>
-            <ResumeH1 data-id={'ResumeH1'}>Irina Zotova &#9679; {props.resume.title}</ResumeH1>
-          </td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>
+    <ResumeTable>
+      <thead>
+      <tr>
+        <td>
+          <ResumeH1 data-id={'ResumeH1'}>Irina Zotova</ResumeH1>
+          <ResumeH1 data-id={'ResumeH1'}>{props.resume.title}</ResumeH1>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <ResumeContainerPrintStyled data-id="ResumeContainerStyled">
             <ResumeRowStyled data-id="ResumeRowStyled contacts">
               {props.resume.contacts.map(contact => (
                 <ContactRow key={contact.label}>
@@ -64,15 +65,15 @@ const Resume: React.FunctionComponent<IResume> = props => {
                     <DateStartEnd start={project.start} end={project.end}/>
                     <span>{project.name}, {project.position}, {project.address}</span>
                   </SummaryRow>
-                  <div>
+                  <ResumeRowStyled data-id="ResumeRowStyled contacts">
                     <div>{project.description.label}</div>
                     <ResumeList data-id="ResumeList">
                       {
                         project.description.value.map(item => <ResumeListItem data-id="ResumeListItem"
-                                                                        key={item}>{item}</ResumeListItem>)
+                                                                              key={item}>{item}</ResumeListItem>)
                       }
                     </ResumeList>
-                  </div>
+                  </ResumeRowStyled>
                   {project.technologies ? <div>
                     <ItalicText>{project.technologies.label} </ItalicText>
                     <span>{project.technologies.value.join(', ')}</span>
@@ -106,13 +107,11 @@ const Resume: React.FunctionComponent<IResume> = props => {
                 )
               }
             </ResumeRowStyled>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
-
-    </ResumeContainerPrintStyled>
+          </ResumeContainerPrintStyled>
+        </td>
+      </tr>
+      </tbody>
+    </ResumeTable>
 
 
   )
