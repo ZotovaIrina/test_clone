@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import FormCell, {IFormCell} from '../FormCell/FormCell';
-import NumberFormat, {NumberFormatValues} from 'react-number-format';
+import  {NumberFormatValues} from 'react-number-format';
+import {PhoneInputStyled} from './PhoneInput.styled';
 
 interface IPhoneInput {
   formCell?: IFormCell,
@@ -30,7 +31,7 @@ const PhoneInput: React.FunctionComponent<IPhoneInput> = props => {
   };
 
   return <FormCell {...props.formCell}>
-    <NumberFormat
+    <PhoneInputStyled
       allowNegative={false}
     decimalScale={0}
     disabled={props.formCell!.disabled || false}

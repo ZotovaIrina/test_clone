@@ -10,13 +10,12 @@ export interface IText {
 const TextComponent: React.FunctionComponent<IText> = props => {
 
   const language = useContext(MyContext);
+  const text = getConfig(AppConfigs[language.language], props.textId);
 
   return (
     <>
-      {props.textId && typeof getConfig(AppConfigs[language.language], props.textId) === 'string' ?
-        `${getConfig(AppConfigs[language.language], props.textId)}${props.children ? props.children : ''}` :
-        props.children
-      }
+        {typeof text === 'string' ? text : props.textId}
+        {props.children ? props.children : ''}
     </>
   )
 

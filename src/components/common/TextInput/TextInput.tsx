@@ -1,5 +1,7 @@
 import * as React from 'react';
 import FormCell, {IFormCell} from '../FormCell/FormCell';
+import {useRef, useState} from 'react';
+import {TextInputStyled} from './TextInput.styled';
 
 export interface ITextInputProps {
   formCell: IFormCell;
@@ -7,76 +9,40 @@ export interface ITextInputProps {
   autoFocus?: boolean;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (option: string | null) => void;
-  getInputRef?: (elem: HTMLInputElement) => void;
 }
 
-interface ITextInputState {
-  inputValue: string;
-}
+const TextInput: React.FC<ITextInputProps> = props => {
 
-/**
- * The HTML input with a label and error messaging.
- */
-export default class TextInput extends React.Component<ITextInputProps, ITextInputState> {
-  public static defaultProps: Partial<ITextInputProps> = {
-    inputValue: null,
+  const [inputValue, setValue] = useState(props.inputValue || '');
+  const textInput = useRef<HTMLInputElement>(null);
+
+  const doAutoFocus = (autofocus: boolean | undefined) => {
+    if(textInput.current && autofocus) {
+      textInput.current.focus()
+    }
   };
 
-  public readonly state: ITextInputState = {
-    inputValue: this.props.inputValue || ''
+  doAutoFocus(props.autoFocus);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value === '' ? null : e.target.value;
+    props.onChange(value);
+    setValue(e.target.value)
   };
-  public textInput: HTMLInputElement | null = null;
 
-  public componentWillReceiveProps(nextProps: ITextInputProps) {
-    if (nextProps.autoFocus && nextProps.autoFocus !== this.props.autoFocus) {
-      this.doAutoFocus(nextProps.autoFocus);
-    }
-
-    if (nextProps.inputValue !== this.state.inputValue) {
-      this.setState({inputValue: nextProps.inputValue || ''});
-    }
-  }
-
-  public componentDidMount() {
-    if (this.props.autoFocus) {
-      this.doAutoFocus(this.props.autoFocus);
-    }
-  }
-
-  public render() {
     return (
-      <FormCell {...this.props.formCell}>
-        <input
+      <FormCell {...props.formCell}>
+        <TextInputStyled
           type={'text'}
-          ref={this.getInputRef}
-          onChange={this.onChange}
-          onBlur={this.props.onBlur}
-          placeholder={this.props.formCell.placeHolder}
-          readOnly={this.props.formCell.disabled}
-          value={this.state.inputValue}
+          ref={textInput}
+          onChange={onChange}
+          onBlur={props.onBlur}
+          placeholder={props.formCell.placeHolder}
+          readOnly={props.formCell.disabled}
+          value={inputValue}
         />
       </FormCell>
     );
-  }
+};
 
-  private getInputRef = (input: HTMLInputElement) => {
-    this.textInput = input;
-    if (this.props.getInputRef) {
-      this.props.getInputRef(input);
-    }
-  };
-
-  private onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value === '' ? null : e.target.value;
-    this.props.onChange(value);
-    this.setState({
-      inputValue: e.target.value
-    });
-  };
-
-  private doAutoFocus = (autofocus: boolean) => {
-    if (autofocus && this.textInput) {
-      this.textInput.focus();
-    }
-  };
-}
+export default TextInput;

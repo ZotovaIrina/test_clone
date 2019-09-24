@@ -1,97 +1,48 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import FormCell, { IFormCell } from '../FormCell/FormCell';
+import {useState} from 'react';
+import {useRef} from 'react';
+import {AreaInputStyled} from './AreaInput.styled';
 
 export interface IAreaInputProps extends IFormCell {
   formCell: IFormCell;
   autoFocus?: boolean;
   inputValue: string | null;
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
-  onChange?: (newValue: string | null) => void;
+  onChange: (newValue: string | null) => void;
   rows?: number;
-  getInputRef?: (elem: HTMLTextAreaElement) => void;
 }
+const AreaInput:React.FC<IAreaInputProps> = props => {
+  const [inputValue, setValue] = useState(props.inputValue || '');
+  const textInput = useRef<HTMLInputElement>(null);
 
-interface IAreaInputState {
-  value: string;
-}
-
-/**
- * The HTML textarea with a label and error messaging.
- */
-export default class AreaInput extends React.Component<IAreaInputProps, IAreaInputState> {
-  public static defaultProps: Partial<IAreaInputProps> = {
-    inputValue: ''
+  const doAutoFocus = (autofocus: boolean | undefined) => {
+    if(textInput.current && autofocus) {
+      textInput.current.focus()
+    }
   };
 
-  public static propTypes = {
-    autoFocus: PropTypes.bool,
-    inputValue: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    placeHolder: PropTypes.string,
-    rows: PropTypes.number,
-    showErrors: PropTypes.bool
+  doAutoFocus(props.autoFocus);
+
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value === '' ? null : e.target.value;
+    props.onChange(value);
+    setValue(e.target.value)
   };
-
-  public state: IAreaInputState = {
-    value: this.props.inputValue || ''
-  };
-
-  public textInput: HTMLTextAreaElement | null = null;
-
-  public componentWillReceiveProps(nextProps: IAreaInputProps) {
-    if (nextProps.autoFocus && nextProps.autoFocus !== this.props.autoFocus) {
-      this.doAutoFocus(nextProps.autoFocus);
-    }
-
-    if (nextProps.inputValue !== this.state.value) {
-      this.setState({ value: nextProps.inputValue || '' });
-    }
-  }
-
-  public componentDidMount() {
-    if (this.props.autoFocus) {
-      this.doAutoFocus(this.props.autoFocus);
-    }
-  }
-
-  public render() {
     return (
-      <FormCell {...this.props.formCell}>
-        <textarea
+      <FormCell {...props.formCell}>
+        <AreaInputStyled
           className="faux-text-area"
-          onBlur={this.props.onBlur}
-          onChange={this.onChange}
-          placeholder={this.props.formCell.placeHolder}
-          readOnly={this.props.formCell.disabled}
-          ref={this.getInputRef}
-          rows={this.props.rows}
-          value={this.state.value}
+          onBlur={props.onBlur}
+          onChange={onChange}
+          placeholder={props.formCell.placeHolder}
+          readOnly={props.formCell.disabled}
+          rows={props.rows || 4}
+          value={inputValue}
         />
       </FormCell>
     );
-  }
 
-  private getInputRef = (input: HTMLTextAreaElement) => {
-    this.textInput = input;
-    if (this.props.getInputRef) {
-      this.props.getInputRef(input);
-    }
-  };
+};
 
-  public onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setState({
-      value: e.target.value
-    });
-    if (this.props.onChange) {
-      this.props.onChange(e.target.value);
-    }
-  };
-
-  public doAutoFocus = (autofocus: boolean) => {
-    if (autofocus && this.textInput) {
-      this.textInput.focus();
-    }
-  };
-}
+export default AreaInput;

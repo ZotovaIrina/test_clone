@@ -9,6 +9,8 @@ import IContactMe from '../../configs/formConfigs/contactMe';
 import {IContactFormPageConfig} from '../../store/contactForm/contactFormReducer';
 import Toggle from '../common/Toggle/Toggle';
 import getBooleanByConfig from '../../utils/getBooleanByConfig';
+import {ResumeContainerStyled} from '../../containers/ResumePage/ResumePage.styled';
+import GridRow from '../common/GridRow/GridRow';
 
 export interface IContactFormProps {
   formData: ContactInformation;
@@ -25,59 +27,63 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
     props.onChange(property, value, propertyType);
   };
   return (
-    <>
-      <TextInput
-        formCell={{
-          ...props.config.name.formCell,
-          errorText: props.formError[props.config.name.value]
-        }}
-        autoFocus={props.pageConfig.focusedField === props.config.name.value}
-        inputValue={props.formData[props.config.name.value]}
-        onChange={value => onFormChange(props.config.name.value, value)}/>
-      <TextInput
-        formCell={{
-          ...props.config.companyName.formCell,
-          errorText: props.formError[props.config.companyName.value]
-        }}
-        autoFocus={props.pageConfig.focusedField === props.config.companyName.value}
-        inputValue={props.formData[props.config.companyName.value]}
-        onChange={value => onFormChange(props.config.companyName.value, value)}/>
-      <PhoneInput
-        formCell={
-          {
-            ...props.config.phone.formCell,
-            isRequired: getBooleanByConfig(props.config.phone.formCell.isRequired, props),
-            errorText: props.formError[props.config.phone.value]
+    <ResumeContainerStyled>
+      <GridRow>
+        <TextInput
+          formCell={{
+            ...props.config.name.formCell,
+            errorText: props.formError[props.config.name.value]
+          }}
+          autoFocus={props.pageConfig.focusedField === props.config.name.value}
+          inputValue={props.formData[props.config.name.value]}
+          onChange={value => onFormChange(props.config.name.value, value)}/>
+        <TextInput
+          formCell={{
+            ...props.config.companyName.formCell,
+            errorText: props.formError[props.config.companyName.value]
+          }}
+          autoFocus={props.pageConfig.focusedField === props.config.companyName.value}
+          inputValue={props.formData[props.config.companyName.value]}
+          onChange={value => onFormChange(props.config.companyName.value, value)}/>
+        <PhoneInput
+          formCell={
+            {
+              ...props.config.phone.formCell,
+              isRequired: getBooleanByConfig(props.config.phone.formCell.isRequired, props),
+              errorText: props.formError[props.config.phone.value]
+            }
           }
-        }
-        autoFocus={props.pageConfig.focusedField === props.config.phone.value}
-        onChange={value => onFormChange(props.config.phone.value, value)}
-        inputValue={props.formData[props.config.phone.value]}/>
-      <TextInput
-        formCell={{
-          ...props.config.email.formCell,
-          errorText: props.formError[props.config.email.value]
-        }}
-        autoFocus={props.pageConfig.focusedField === props.config.email.value}
-        inputValue={props.formData[props.config.email.value]}
-        onChange={value => onFormChange(props.config.email.value, value)}/>
-      <AreaInput
-        formCell={{
-          ...props.config.message.formCell,
-          errorText: props.formError[props.config.message.value]
-        }}
-        autoFocus={props.pageConfig.focusedField === props.config.message.value}
-        inputValue={props.formData[props.config.message.value]}
-        onChange={value => onFormChange(props.config.message.value, value)}/>
-      <Toggle inputValue={props.formData[props.config.contactByPhone.value]}
-              formCell={{
-                ...props.config.contactByPhone.formCell,
-                errorText: props.formError[props.config.contactByPhone.value]
-              }}
-              onChange={value => onFormChange('contactByPhone', value)}/>
+          autoFocus={props.pageConfig.focusedField === props.config.phone.value}
+          onChange={value => onFormChange(props.config.phone.value, value)}
+          inputValue={props.formData[props.config.phone.value]}/>
+        <TextInput
+          formCell={{
+            ...props.config.email.formCell,
+            errorText: props.formError[props.config.email.value]
+          }}
+          autoFocus={props.pageConfig.focusedField === props.config.email.value}
+          inputValue={props.formData[props.config.email.value]}
+          onChange={value => onFormChange(props.config.email.value, value)}/>
+        <AreaInput
+          formCell={{
+            ...props.config.message.formCell,
+            errorText: props.formError[props.config.message.value]
+          }}
+          autoFocus={props.pageConfig.focusedField === props.config.message.value}
+          inputValue={props.formData[props.config.message.value]}
+          onChange={value => onFormChange(props.config.message.value, value)}/>
+        <Toggle inputValue={props.formData[props.config.contactByPhone.value]}
+                formCell={{
+                  ...props.config.contactByPhone.formCell,
+                  errorText: props.formError[props.config.contactByPhone.value]
+                }}
+                onChange={value => onFormChange('contactByPhone', value)}/>
 
-      <Button onClick={props.onSubmit} textId="submit" />
-    </>
+        <GridRow columns={1} data-id="GridRow" columnWidth={'20%'} justifyContent={'end'}>
+          <Button onClick={props.onSubmit} textId="submit"/>
+        </GridRow>
+      </GridRow>
+    </ResumeContainerStyled>
   )
 };
 
