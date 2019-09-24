@@ -21,7 +21,7 @@ export default class HomeBackground extends React.Component<{}> {
     map.anisotropy = 16;
     var material = new THREE.MeshPhongMaterial( { map: map, side: THREE.DoubleSide } );
 
-    object = new THREE.Mesh( new THREE.BoxBufferGeometry( cubeSide, cubeSide, cubeSide, 4, 4, 4 ), material );
+    object = new THREE.Mesh( new THREE.DodecahedronBufferGeometry( cubeSide, 0 ), material );
     object.position.set( - 100, 0, 0 );
     scene.add( object );
     //
