@@ -15,7 +15,13 @@ padding: ${props => props.theme.spacing.gapValue * 2}${props => props.theme.spac
 
 export const ResumeTable = styled.table`
 @media print {
-margin: 20mm;
+margin: 0 20mm 20mm 20mm;
+}
+`;
+
+export const ResumeTableHeader = styled.div`
+@media print {
+padding-top: 20mm;
 }
 `;
 

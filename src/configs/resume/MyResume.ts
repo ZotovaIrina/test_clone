@@ -1,5 +1,6 @@
 export default interface IMyResume {
   title: string;
+  myName: string;
   contacts: ILabelValue[];
   summary: IResumeSummary;
   projects: IProjectData;

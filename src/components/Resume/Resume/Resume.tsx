@@ -6,7 +6,7 @@ import {
   ResumeH1,
   ResumeH2,
   ResumeList, ResumeListItem,
-  ResumeRowStyled, ResumeTable,
+  ResumeRowStyled, ResumeTable, ResumeTableHeader,
   SummaryRow
 } from '../../../containers/ResumePage/ResumePage.styled';
 import OpenLinkInNewTab from '../../common/OpenLinkInNewTab/OpenLinkInNewTab';
@@ -24,8 +24,10 @@ const Resume: React.FunctionComponent<IResume> = props => {
       <thead>
       <tr>
         <td>
-          <ResumeH1 data-id={'ResumeH1'}>Irina Zotova</ResumeH1>
-          <ResumeH1 data-id={'ResumeH1'}>{props.resume.title}</ResumeH1>
+          <ResumeTableHeader>
+            <ResumeH1 data-id={'ResumeH1'}>{props.resume.myName}</ResumeH1>
+            <ResumeH1 data-id={'ResumeH1'}>{props.resume.title}</ResumeH1>
+          </ResumeTableHeader>
         </td>
       </tr>
       </thead>
@@ -65,8 +67,8 @@ const Resume: React.FunctionComponent<IResume> = props => {
                     <DateStartEnd start={project.start} end={project.end}/>
                     <span>{project.name}, {project.position}, {project.address}</span>
                   </SummaryRow>
-                  <ResumeRowStyled data-id="ResumeRowStyled contacts">
-                    <div>{project.description.label}</div>
+                  <ResumeRowStyled data-id="ResumeRowStyled">
+                    <div>{project.description.label}:</div>
                     <ResumeList data-id="ResumeList">
                       {
                         project.description.value.map(item => <ResumeListItem data-id="ResumeListItem"
@@ -75,37 +77,39 @@ const Resume: React.FunctionComponent<IResume> = props => {
                     </ResumeList>
                   </ResumeRowStyled>
                   {project.technologies ? <div>
-                    <ItalicText>{project.technologies.label} </ItalicText>
+                    <ItalicText>{project.technologies.label}: </ItalicText>
                     <span>{project.technologies.value.join(', ')}</span>
                   </div> : null}
                 </ResumeRowStyled>
               )
             }
+            <ResumeRowStyled data-id="ResumeRowStyled">
 
-            <ResumeRowStyled data-id="ResumeRowStyled courses">
-              <ResumeH2>{props.resume.education.courses.label}</ResumeH2>
-              {
-                props.resume.education.courses.value.map(course =>
-                  <EducationRow key={course.title}>
-                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
-                    <span>{course.title}</span>
-                    {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
-                  </EducationRow>
-                )
-              }
-            </ResumeRowStyled>
+              <ResumeRowStyled data-id="ResumeRowStyled courses">
+                <ResumeH2>{props.resume.education.courses.label}</ResumeH2>
+                {
+                  props.resume.education.courses.value.map(course =>
+                    <EducationRow key={course.title}>
+                      <BoldText>{course.startYear} - {course.endYear}</BoldText>
+                      <span>{course.title}</span>
+                      {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
+                    </EducationRow>
+                  )
+                }
+              </ResumeRowStyled>
 
-            <ResumeRowStyled data-id="ResumeRowStyled education">
-              <ResumeH2>{props.resume.education.degree.label}</ResumeH2>
-              {
-                props.resume.education.degree.value.map(course =>
-                  <EducationRow key={course.title}>
-                    <BoldText>{course.startYear} - {course.endYear}</BoldText>
-                    <span>{course.title}</span>
-                    {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
-                  </EducationRow>
-                )
-              }
+              <ResumeRowStyled data-id="ResumeRowStyled education">
+                <ResumeH2>{props.resume.education.degree.label}</ResumeH2>
+                {
+                  props.resume.education.degree.value.map(course =>
+                    <EducationRow key={course.title}>
+                      <BoldText>{course.startYear} - {course.endYear}</BoldText>
+                      <span>{course.title}</span>
+                      {course.url ? <OpenLinkInNewTab link={course.url}>certificate</OpenLinkInNewTab> : null}
+                    </EducationRow>
+                  )
+                }
+              </ResumeRowStyled>
             </ResumeRowStyled>
           </ResumeContainerPrintStyled>
         </td>
