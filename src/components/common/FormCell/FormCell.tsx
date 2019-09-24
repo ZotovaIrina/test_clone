@@ -13,15 +13,17 @@ export interface IFormCell {
 const FormCell: React.FC<IFormCell> = props => {
   return (
     <FormCellStyled data-id="FormCell">
-      <FormCellLabel data-id="FormCellLabel">
-        {props.label ? <TextTranslate textId={props.label}>{props.isRequired ? ' *' : ''}</TextTranslate> : null}
-      </FormCellLabel>
+      {props.label ?
+        <FormCellLabel data-id="FormCellLabel" textId={props.label}>
+          {props.isRequired ? ' *' : ''}
+        </FormCellLabel>
+        : <span/>}
       {props.children}
       <FormCellError data-id="FormCellError">
         {props.errorText ? <TextTranslate textId={props.errorText}/> : null}
       </FormCellError>
     </FormCellStyled>
   );
-}
+};
 
 export default FormCell;

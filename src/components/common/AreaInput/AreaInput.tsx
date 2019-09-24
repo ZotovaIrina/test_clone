@@ -32,7 +32,7 @@ const AreaInput:React.FC<IAreaInputProps> = props => {
     return (
       <FormCell {...props.formCell}>
         <AreaInputStyled
-          className="faux-text-area"
+          errorText={props.formCell.errorText}
           onBlur={props.onBlur}
           onChange={onChange}
           placeholder={props.formCell.placeHolder}

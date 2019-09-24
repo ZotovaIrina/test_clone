@@ -3,7 +3,7 @@ import getConfig, {AppConfigs} from '../../../configs/getConfig';
 import {MyContext} from '../../../store/language/languageContext';
 
 export interface IText {
-  textId?: string,
+  textId?: string | null,
   className?: string
 }
 

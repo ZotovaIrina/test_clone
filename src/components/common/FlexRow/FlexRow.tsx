@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 interface IFlex {
   justifyContent?: 'space-between' | 'start' | 'center' | 'end' | 'flex-end' | 'space-around';
-  verticalAlign?: 'center' | 'flex-end' | 'flex-start';
+  verticalAlign?: 'center' | 'flex-end' | 'flex-start' | 'normal';
   width?: 'auto' | 'min-content' | 'max-content' | number;
 }
 

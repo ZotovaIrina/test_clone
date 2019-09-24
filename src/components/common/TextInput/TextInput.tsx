@@ -34,6 +34,7 @@ const TextInput: React.FC<ITextInputProps> = props => {
       <FormCell {...props.formCell}>
         <TextInputStyled
           type={'text'}
+          errorText={props.formCell.errorText}
           ref={textInput}
           onChange={onChange}
           onBlur={props.onBlur}

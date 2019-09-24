@@ -4,7 +4,7 @@ import  {NumberFormatValues} from 'react-number-format';
 import {PhoneInputStyled} from './PhoneInput.styled';
 
 interface IPhoneInput {
-  formCell?: IFormCell,
+  formCell: IFormCell,
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange: (value: number | null) => void;
@@ -33,6 +33,7 @@ const PhoneInput: React.FunctionComponent<IPhoneInput> = props => {
   return <FormCell {...props.formCell}>
     <PhoneInputStyled
       allowNegative={false}
+      errorText={props.formCell.errorText}
     decimalScale={0}
     disabled={props.formCell!.disabled || false}
     displayType={'input'}

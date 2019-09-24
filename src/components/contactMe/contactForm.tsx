@@ -7,7 +7,7 @@ import {ValidationType} from '../../utils/validation/validator/validator';
 import {Button} from '../common/Button/Button.styles';
 import IContactMe from '../../configs/formConfigs/contactMe';
 import {IContactFormPageConfig} from '../../store/contactForm/contactFormReducer';
-import Toggle from '../common/Toggle/Toggle';
+import Checkbox from '../common/Checkbox/Checkbox';
 import getBooleanByConfig from '../../utils/getBooleanByConfig';
 import {ResumeContainerStyled} from '../../containers/ResumePage/ResumePage.styled';
 import GridRow from '../common/GridRow/GridRow';
@@ -72,12 +72,12 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
           autoFocus={props.pageConfig.focusedField === props.config.message.value}
           inputValue={props.formData[props.config.message.value]}
           onChange={value => onFormChange(props.config.message.value, value)}/>
-        <Toggle inputValue={props.formData[props.config.contactByPhone.value]}
-                formCell={{
+        <Checkbox inputValue={props.formData[props.config.contactByPhone.value]}
+                  formCell={{
                   ...props.config.contactByPhone.formCell,
                   errorText: props.formError[props.config.contactByPhone.value]
                 }}
-                onChange={value => onFormChange('contactByPhone', value)}/>
+                  onChange={value => onFormChange('contactByPhone', value)}/>
 
         <GridRow columns={1} data-id="GridRow" columnWidth={'20%'} justifyContent={'end'}>
           <Button onClick={props.onSubmit} textId="submit"/>

@@ -10,7 +10,7 @@ export enum AppConfigs {
 }
 
 
-export default function(config: AppConfigs, path?: string, updateConfig?: object): object {
+export default function(config: AppConfigs, path?: string | null, updateConfig?: object): object {
   const value = path ? lodash.get(configs[config], path) : configs[config];
   if (!updateConfig || !path) {
     return value === undefined ? {} : value;
