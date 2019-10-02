@@ -12,7 +12,7 @@ const allFieldsIsValidation = (data: object, config: object): IAllFieldsValidati
 
   let fieldValidation: IValidationResult;
   const validationResult: IAllFieldsValidation = {
-    valid: false,
+    valid: true,
     validationMessages: {}
   };
 

@@ -5,12 +5,13 @@ import {AnyAction, Store} from 'redux';
 import {ValidationType} from '../../utils/validation/validator/validator';
 import getConfig, {AppConfigs} from '../../configs/getConfig';
 import allFieldsIsValidation, {IAllFieldsValidation} from '../../utils/validation/allFieldsIsValidation';
+import {SendEmail} from '../../API/SendEmail';
 
 const config = getConfig(AppConfigs.contactMe);
 
 export const updateContactMeForm = (property: string, value: any, propertyType?: ValidationType) => {
 
-  const validation:IAllFieldsValidation = allFieldsIsValidation({
+  const validation: IAllFieldsValidation = allFieldsIsValidation({
     ...store.getState().contactForm.formData,
     [property]: value
   }, config);
@@ -44,6 +45,15 @@ export const submitContactMeForm = () => {
       }
 
     })
+  }
+  else {
+    SendEmail.send(store.getState().contactForm.formData)
+      .then(response => {
+        console.log('Send!!!!', response);
+      })
+      .catch(error => {
+        console.log('Error!!!!', error)
+      });
   }
 
 };
