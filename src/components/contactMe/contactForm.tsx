@@ -12,6 +12,9 @@ import {ResumeContainerStyled} from '../../containers/ResumePage/ResumePage.styl
 import GridRow from '../common/GridRow/GridRow';
 import {IFetch} from '../../types/Fetch';
 import {ErrorText} from '../common/Text/Text.styled';
+import Icon from '../common/Icon/Icon';
+import {IconType} from '../common/Icon/IconType';
+import {Size} from '../../style/Theme';
 
 export interface IContactFormProps {
   formData: ContactInformation;
@@ -82,8 +85,12 @@ const ContactForm: React.FunctionComponent<IContactFormProps> = props => {
                   onChange={value => onFormChange('contactByPhone', value)}/>
 
         <GridRow data-id="GridRow" gridTemplate={'1fr 20%'} justifyContent={'end'} justifyItems={'end'} verticalAlign={'center'}>
-          {props.submitProcess.errorMessage ? <ErrorText textId={props.submitProcess.errorMessage}/> : <div />}
-          <Button onClick={props.onSubmit} textId="submit"/>
+          {props.submitProcess.errorMessage ? <ErrorText textId={props.submitProcess.errorMessage}/> :
+            props.submitProcess.fetching ? <Icon type={IconType.loading} size={Size.small} /> :
+            props.submitProcess.fetched ? <Icon type={IconType.check} size={Size.small} /> :
+              <div />
+          }
+          <Button onClick={props.onSubmit} disabled={true} textId="submit"/>
         </GridRow>
       </GridRow>
     </ResumeContainerStyled>

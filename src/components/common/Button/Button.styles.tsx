@@ -11,6 +11,7 @@ interface IButton extends React.HTMLProps<HTMLButtonElement> {
   active?: boolean;
   textId?: string;
   type?: ButtonType;
+  disable?: boolean;
 }
 
 export enum ButtonType {

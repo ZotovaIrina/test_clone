@@ -13,8 +13,8 @@ export const theme: ITheme = {
     maxWidth: '1000px'
   },
   size: {
-    small: '16px',
-    smallValue: 16,
+    small: '24px',
+    smallValue: 24,
     unit: 'px',
     regular: '32px',
     regularValue: 32,
