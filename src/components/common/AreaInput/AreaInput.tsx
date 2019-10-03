@@ -3,6 +3,7 @@ import FormCell, { IFormCell } from '../FormCell/FormCell';
 import {useState} from 'react';
 import {useRef} from 'react';
 import {AreaInputStyled} from './AreaInput.styled';
+import {useEffect} from 'react';
 
 export interface IAreaInputProps extends IFormCell {
   formCell: IFormCell;
@@ -23,6 +24,10 @@ const AreaInput:React.FC<IAreaInputProps> = props => {
   };
 
   doAutoFocus(props.autoFocus);
+
+  useEffect(() => {
+    setValue(props.inputValue || '');
+  }, [props.inputValue]);
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value === '' ? null : e.target.value;

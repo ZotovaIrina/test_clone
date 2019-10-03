@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import FormCell, {IFormCell} from '../FormCell/FormCell';
 import  {NumberFormatValues} from 'react-number-format';
 import {PhoneInputStyled} from './PhoneInput.styled';
@@ -15,6 +15,10 @@ interface IPhoneInput {
 const PhoneInput: React.FunctionComponent<IPhoneInput> = props => {
 
   const [inputValue, setValue] = useState<number | undefined>(props.inputValue || undefined);
+
+  useEffect(() => {
+    setValue(props.inputValue === null ? undefined : props.inputValue);
+  }, [props.inputValue]);
 
   const onValueChange = (value: NumberFormatValues) => {
     setValue(value.floatValue);

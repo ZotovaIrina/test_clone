@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FormCell, {IFormCell} from '../FormCell/FormCell';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {TextInputStyled} from './TextInput.styled';
 
 export interface ITextInputProps {
@@ -23,6 +23,10 @@ const TextInput: React.FC<ITextInputProps> = props => {
   };
 
   doAutoFocus(props.autoFocus);
+
+  useEffect(() => {
+    setValue(props.inputValue || '');
+  }, [props.inputValue]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value === '' ? null : e.target.value;
