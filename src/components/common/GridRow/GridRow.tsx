@@ -3,6 +3,7 @@ import styledComponents from 'styled-components';
 interface IGridRow extends React.HTMLProps<HTMLDivElement> {
   columns?: number;
   justifyContent?: 'space-between' | 'start' | 'center' | 'end';
+  justifyItems?: 'space-between' | 'start' | 'center' | 'end';
   verticalAlign?: 'start' | 'end' | 'center';
   columnWidth?: string;
   gridTemplate?: string;
@@ -18,6 +19,7 @@ const getGridTemplate = (props: IGridRow): string => props.gridTemplate || `repe
 const GridRow = styledComponents.div<IGridRow>`
       display: grid;
       justify-content: ${props => `${props.justifyContent ? props.justifyContent : 'start'}`};
+      justify-items: ${props => `${props.justifyItems ? props.justifyItems : ''}`};
       align-items: ${props => `${props.verticalAlign || 'start'}`};
       grid-template-columns: ${props => getGridTemplate(props)};
       gap: ${props => props.theme.spacing.gap};

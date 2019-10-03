@@ -1,5 +1,11 @@
 import store from '../Store';
-import {editErrorAction, editValueAction, setFormFocusedField, setFormIsValidAction} from './contactFormActions';
+import {
+  editErrorAction,
+  editValueAction, setDefaultForm,
+  setFormFocusedField,
+  setFormIsValidAction, setSendEmailError,
+  setSendEmailInProcess, setSendEmailSuccess
+} from './contactFormActions';
 import {ThunkDispatch} from 'redux-thunk';
 import {AnyAction, Store} from 'redux';
 import {ValidationType} from '../../utils/validation/validator/validator';
@@ -47,13 +53,27 @@ export const submitContactMeForm = () => {
     })
   }
   else {
+    (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+      dispatch(setSendEmailInProcess());
+    });
     SendEmail.send(store.getState().contactForm.formData)
       .then(response => {
-        console.log('Send!!!!', response);
+        (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+          dispatch(setSendEmailSuccess());
+        });
       })
       .catch(error => {
-        console.log('Error!!!!', error)
+        (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+          dispatch(setSendEmailError(error.toString()));
+        });
       });
   }
 
+};
+
+export const setDefaultContactMeForm = () => {
+
+  (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
+    dispatch(setDefaultForm());
+  });
 };

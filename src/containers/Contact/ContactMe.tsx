@@ -1,25 +1,28 @@
 import React from 'react';
 import ContactForm, {IContactFormProps} from '../../components/contactMe/contactForm';
 import NavigationBar from '../../components/common/NavigationBar/NavigationBar';
+import {ContactMePageContainer} from '../../components/contactMe/ContactMe.styled';
+import GridRow from '../../components/common/GridRow/GridRow';
 
-export interface IContactMePage {
-  contactForm: IContactFormProps
-}
+const ContactMe: React.FunctionComponent<IContactFormProps> = props => {
 
-const ContactMe: React.FunctionComponent<IContactMePage> = props => {
   console.log(props);
   return (
     <>
       <NavigationBar/>
-      <h1>Contact Me</h1>
-      <ContactForm
-        formData={props.contactForm.formData}
-        formError={props.contactForm.formError}
-        config={props.contactForm.config}
-        pageConfig={props.contactForm.pageConfig}
-        onChange={props.contactForm.onChange}
-        onSubmit={props.contactForm.onSubmit}
-      />
+      <ContactMePageContainer>
+        <GridRow>
+          <ContactForm
+            formData={props.formData}
+            formError={props.formError}
+            config={props.config}
+            focusedField={props.focusedField}
+            submitProcess={props.submitProcess}
+            onChange={props.onChange}
+            onSubmit={props.onSubmit}
+          />
+        </GridRow>
+      </ContactMePageContainer>
     </>
   )
 };

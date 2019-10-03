@@ -12,7 +12,11 @@ font-family: ItalicFont;
 
 const TextStyled = styled.span`
 font-family: RegularFont;
+`;
 
+const ErrorTextStyled = styled.span`
+font-family: RegularFont;
+color: ${props => props.theme.colors.secondary};
 `;
 
 const H1Styled = styled.h1`
@@ -31,6 +35,12 @@ export const TextTranslate: React.FC<IText> = props => {
   return <TextStyled className={props.className}>
     <TextComponent {...props}>{props.children}</TextComponent>
   </TextStyled>
+};
+
+export const ErrorText: React.FC<IText> = props => {
+  return <ErrorTextStyled className={props.className}>
+    <TextComponent {...props}>{props.children}</TextComponent>
+  </ErrorTextStyled>
 };
 
 export const BoldText: React.FC<IText> = props => {

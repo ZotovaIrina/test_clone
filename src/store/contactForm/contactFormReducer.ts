@@ -2,11 +2,13 @@ import {Reducer} from 'redux';
 import ContactInformation from '../../types/ContactInformation';
 import {ContactFormActions} from './contactFormActions';
 import {IAction} from '../../types/Action';
+import {fetchError, fetchInProcess, fetchSuccess, IFetch, initFetch} from '../../types/Fetch';
 
 
 export interface IContactFormPageConfig {
   formIsValid: boolean;
   focusedField?: string;
+  sendEmail: IFetch;
 }
 
 export interface IContactMeStore {
@@ -20,7 +22,8 @@ const defaultState:IContactMeStore = {
   formError: {},
   pageConfig: {
     formIsValid: false,
-    focusedField: undefined
+    focusedField: undefined,
+    sendEmail: initFetch()
   }
 };
 
@@ -62,6 +65,38 @@ const ContactFormReducer: Reducer<IContactMeStore, any> = (state = defaultState,
           ...state.pageConfig,
           focusedField: action.payload
         }
+      };
+      break;
+    case ContactFormActions.setSendEmailInProcess:
+      newState = {
+        ...state,
+        pageConfig: {
+          ...state.pageConfig,
+          sendEmail: fetchInProcess()
+        }
+      };
+      break;
+    case ContactFormActions.setSendEmailSuccess:
+      newState = {
+        ...state,
+        pageConfig: {
+          ...state.pageConfig,
+          sendEmail: fetchSuccess()
+        }
+      };
+      break;
+    case ContactFormActions.setSendEmailError:
+      newState = {
+        ...state,
+        pageConfig: {
+          ...state.pageConfig,
+          sendEmail: fetchError(action.payload)
+        }
+      };
+      break;
+    case ContactFormActions.setDefaultForm:
+      newState = {
+        ...defaultState
       };
       break;
   }
