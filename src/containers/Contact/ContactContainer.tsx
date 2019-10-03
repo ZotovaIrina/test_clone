@@ -19,23 +19,25 @@ const mapStateToProps = (state: IStore) => ({
   pageConfig: state.contactForm.pageConfig,
   config: getConfig(AppConfigs.contactMe) as IContactMe,
   onChange: updateContactMeForm,
-  onSubmit: submitContactMeForm
+  onSubmit: submitContactMeForm,
+  setDefaultContactMeForm: setDefaultContactMeForm
 });
 
 interface IContactContainer {
-  formData: ContactInformation,
-  formError: object,
-  pageConfig: IContactFormPageConfig,
-  config: IContactMe,
-  onChange: (property: string, newValue: any, propertyType?: ValidationType) => void,
-  onSubmit: () => void
+  formData: ContactInformation;
+  formError: object;
+  pageConfig: IContactFormPageConfig;
+  config: IContactMe;
+  onChange: (property: string, newValue: any, propertyType?: ValidationType) => void;
+  onSubmit: () => void;
+  setDefaultContactMeForm: () => void;
 }
 
 export class ContactContainer extends React.Component<IContactContainer> {
 
   constructor(props: IContactContainer) {
     super(props);
-    setDefaultContactMeForm()
+    this.props.setDefaultContactMeForm();
   }
 
   render() {
