@@ -13,5 +13,12 @@
   "email": "E-mail",
   "yourMessage": "Your message",
   "usePhone": "Contact by phone instead of email",
-  "present": "Present"
+  "present": "Present",
+  "serverError": "Something wrong. Try latter",
+  "errorRequired": "$label can not be blank",
+  "errorNumber": "$label is invalid",
+  "errorDate": "Invalid date",
+  "errorPhone": "Invalid phone number",
+  "errorEmail": "Invalid email",
+  "errorInvalid": "$label is invalid"
 }

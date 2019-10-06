@@ -64,7 +64,7 @@ export const submitContactMeForm = () => {
       })
       .catch(error => {
         (store.dispatch as ThunkDispatch<Store, void, AnyAction>)((dispatch) => {
-          dispatch(setSendEmailError(error.toString()));
+          dispatch(setSendEmailError(error));
         });
       });
   }

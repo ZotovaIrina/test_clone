@@ -4,18 +4,30 @@ import {MyContext} from '../../../store/language/languageContext';
 
 export interface IText {
   textId?: string | null,
-  className?: string
+  className?: string,
+  replaceConfig?: object
 }
 
 const TextComponent: React.FunctionComponent<IText> = props => {
 
   const language = useContext(MyContext);
-  const text = getConfig(AppConfigs[language.language], props.textId);
+  let text: any = getConfig(AppConfigs[language.language], props.textId);
+  if (typeof text !== 'string') {
+    text = props.textId || ''
+  }
+  if (props.replaceConfig) {
+    const keys = Object.keys(props.replaceConfig);
+    keys.map(key => {
+      return text = text.toString()
+        .replace(key, getConfig(AppConfigs[language.language], props.replaceConfig![key]))
+    });
+  }
+
 
   return (
     <>
-        {typeof text === 'string' ? text : props.textId}
-        {props.children ? props.children : ''}
+      {text}
+      {props.children ? props.children : ''}
     </>
   )
 

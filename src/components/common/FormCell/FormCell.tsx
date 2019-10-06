@@ -20,7 +20,13 @@ const FormCell: React.FC<IFormCell> = props => {
         : <span/>}
       {props.children}
       <FormCellError data-id="FormCellError">
-        {props.errorText ? <TextTranslate textId={props.errorText}/> : null}
+        {props.errorText ?
+          <TextTranslate
+            textId={props.errorText}
+            replaceConfig={{
+              '$label': props.label
+            }}
+          /> : null}
       </FormCellError>
     </FormCellStyled>
   );

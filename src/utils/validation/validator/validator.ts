@@ -1,6 +1,6 @@
-import generateValidationMessage from '../generateValidationMessage/generateValidationMessage';
 import {IValidationResult} from './ValidationResult';
 import {isNullOrUndefined} from '../../isNullOrUndefined';
+import {ValidationMessage} from '../generateValidationMessage/ValidationMessage';
 
 export interface IValidatorMessages {
   validMessage?: string;
@@ -25,7 +25,7 @@ export interface IValidatorConfig {
 export default function validator(value: any, config: IValidatorConfig): IValidationResult {
 
   let invalidMessage: string = (config.messages && config.messages.invalidMessage) ?
-    config.messages.invalidMessage : generateValidationMessage('invalid', config.label);
+    config.messages.invalidMessage : ValidationMessage.invalid;
 
   const validateType = (data: any, dataType: string): boolean => {
     return typeof data === dataType;
@@ -38,7 +38,7 @@ export default function validator(value: any, config: IValidatorConfig): IValida
 
   if (isNullOrUndefined(value)) {
     validationResult = {
-      message: config.required ? generateValidationMessage('required', config.label) : null,
+      message: config.required ? ValidationMessage.required : null,
       isValid: !config.required
     };
   } else {
@@ -49,9 +49,8 @@ export default function validator(value: any, config: IValidatorConfig): IValida
         break;
       case ValidationType.phone:
         isValid = validateType(value, 'number') && value.toString().length === 10;
-        if (isNullOrUndefined(value) && config.required) {
-          isValid = false;
-          invalidMessage = generateValidationMessage('required', config.label);
+        if (!isValid) {
+          invalidMessage = ValidationMessage.phone;
         }
         break;
       case ValidationType.string:
@@ -59,14 +58,14 @@ export default function validator(value: any, config: IValidatorConfig): IValida
         if (isValid && config.required) {
           isValid = value.toString() !== '';
           if (!isValid) {
-            invalidMessage = generateValidationMessage('required', config.label);
+            invalidMessage = ValidationMessage.required;
           }
         }
         break;
       case ValidationType.date:
         isValid = value instanceof Date && !isNaN(value.getTime());
         if (!isValid) {
-          invalidMessage = generateValidationMessage('date', config.label);
+          invalidMessage = ValidationMessage.date;
         }
     }
     validationResult = {
