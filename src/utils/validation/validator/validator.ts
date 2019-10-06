@@ -1,6 +1,6 @@
 import {IValidationResult} from './ValidationResult';
 import {isNullOrUndefined} from '../../isNullOrUndefined';
-import {ValidationMessage} from '../generateValidationMessage/ValidationMessage';
+import {ValidationMessage} from '../ValidationMessage';
 
 export interface IValidatorMessages {
   validMessage?: string;
