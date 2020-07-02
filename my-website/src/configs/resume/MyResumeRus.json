@@ -1,0 +1,216 @@
+{
+  "title": "Frontend Разработчик",
+  "myName": "Зотова Ирина",
+  "contacts": [
+    {
+      "label": "E-mail",
+      "value": "zotovaforjob@gmail.com"
+    },
+    {
+      "label": "Место жительства",
+      "value": "Эдисон, НДж"
+    },
+    {
+      "label": "Git",
+      "value": "http://www.github.com/ZotovaIrina"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "http://www.linkedin.com/in/irina-zotova-1468b9104"
+    }
+  ],
+  "summary": {
+    "label": "Общее",
+    "experience": {
+      "label": "Опыт работы",
+      "value": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Redux",
+        "Mobx",
+        "AngularJS",
+        "Bootstrap",
+        "Angular Material",
+        "Webpack",
+        "Gulp",
+        "Ionic",
+        "Cordova"
+      ]
+    },
+    "familiar": {
+      "label": "Знаком",
+      "value": [
+        "VueJS",
+        "jQuery",
+        "Kotlin",
+        "Ruby on Rail"
+      ]
+    }
+  },
+  "projects": {
+    "label": "Опыт работы",
+    "value": [
+      {
+        "name": "Spruce",
+        "image": "spruce.jpg",
+        "start": "2018-04-04",
+        "end": "Present",
+        "position": "Software Engineer",
+        "address": "Нью Йорк, НЙ",
+        "website": [
+          "spruce.co"
+        ],
+        "description": {
+          "label": "Выполняемые задачи",
+          "value": [
+            "Разработка пользоваптельского интерфейса",
+            "Рефакторинг с SCSS в Styled Components",
+            "Mиграция с Ruby on Rails на React приложение",
+            "Разработка пользовательского интерфейса с использованием различных технологий: Typescript + React; Mobx, Redux и React Context API для стейт менеджмента, Kotlin.JS",
+            "Создание HTML/SCSS тимплейта для генерации PDF документов"
+          ]
+        },
+        "technologies": {
+          "label": "Технологии",
+          "value": [
+            "TypeScript",
+            "React",
+            "Redux",
+            "Mobx",
+            "React Context API",
+            "Styled components",
+            "Jest",
+            "SCSS",
+            "Webpack",
+            "Kotlin",
+            "Ruby on Rails"
+          ]
+        }
+      },
+      {
+        "name": "EffectiveSoft",
+        "image": "calendar.jpg",
+        "start": "2016-08-08",
+        "end": "2017-08-08",
+        "position": "UI Разработчик",
+        "address": "Минск, Беларусь",
+        "website": [
+          "https://play.google.com/store/apps/details?id=com.lbrc.PeriodCalendar",
+          "https://play.google.com/store/apps/details?id=com.brc.PeriodTrackerDiary",
+          "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1032267351?mt=8",
+          "https://itunes.apple.com/us/app/my-calendar-period-tracker/id1064911742?mt=8"
+        ],
+        "description": {
+          "label": "Выполняемые задачи",
+          "value": [
+            "Разработка пользовательского интерфейса для мобильного приложения с использованием: Cordova, JavaScript, AngularJS, HTML, SCSS, jQuery",
+            "Использование Gulp для построения приложения",
+            "Использование media-queries для реальзации адаптивного дизайна",
+            "Написание юнит тестов с использованием Jasmine",
+            "Кроссплатформенная разработка: iOS, Android"
+          ]
+        },
+        "technologies": {
+          "label": "Технологии",
+          "value": [
+            "Cordova",
+            "JavaScript",
+            "AngularJS",
+            "jQuery",
+            "HTML",
+            "SCSS",
+            "Gulp",
+            "Jasmine",
+            "Git"
+          ]
+        }
+      },
+      {
+        "name": "Фриланс",
+        "image": "EP.jpg",
+        "start": "2015-04-04",
+        "end": "2016-08-08",
+        "position": "JavaScript Разработчик",
+        "address": "Челябинск, Россия",
+        "website": [
+          "http://vzlobin.ru/",
+          "https://embroidery-pattern.herokuapp.com"
+        ],
+        "description": {
+          "label": "Выполняемые задачи",
+          "value": [
+            "Разработка пользовательского интерфейса с использованием: JavaScript, AngularJS, HTML, CSS, jQuery",
+            "Использование Grunt для построения приложения",
+            "Построение модульной архитектуры с использованием Browserify",
+            "Использование media-queries для реальзации адаптивного дизайна",
+            "Разработка админ панели с использованием: Node.js, Express, imagemagick, HTML, CSS, SASS, Bootstrap, AngularJS",
+            "Разработка гибритного приложения с использованием: Ionic, Cordova, AngularJS."
+          ]
+        },
+        "technologies": {
+          "label": "Технологии",
+          "value": [
+            "JavaScript",
+            "AngularJS",
+            "Bootstrap",
+            "Angular Material",
+            "jQuery",
+            "HTML",
+            "CSS",
+            "Grunt",
+            "Cordova",
+            "Ionic",
+            "Node.js",
+            "Express.js",
+            "Imagemagick",
+            "Browserify",
+            "Git"
+          ]
+        }
+      },
+      {
+        "name": "ООО Элметро",
+        "notSoftwareProject": true,
+        "start": "2008-09-01",
+        "end": "2012-01-01",
+        "position": "Инженер-конструктор",
+        "address": "Челябинск, Россия",
+        "website": [
+          "https://elmetro.ru"
+        ],
+        "description": {
+          "label": "Выполняемые задачи",
+          "value": [
+            "Разработка конструкции с использованием систем 3D CAD проектирования",
+            "Проектирование печатных плат",
+            "Разработка конструкторской документации"
+          ]
+        }
+      }
+    ]
+  },
+  "education": {
+    "degree": {
+      "label": "Образование",
+      "value": [
+        {
+          "startYear": "2005",
+          "endYear": "2010",
+          "title": "Инженер конструктор радиоэлектроники, ЮУрГУ, Челябинск, Россия"
+        }
+      ]
+    },
+    "courses": {
+      "label": "Курсы",
+      "value": [
+        {
+          "startYear": "2015",
+          "endYear": "2016",
+          "title": "Full Stack Web Development, Coursera",
+          "url": "https://www.coursera.org/account/accomplishments/specialization/7G7MHNFDP69S"
+        }
+      ]
+    }
+  }
+}

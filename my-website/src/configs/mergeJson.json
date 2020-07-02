@@ -1,0 +1,48 @@
+{
+  "en": {
+    "$merge": {
+      "source": {
+        "$import": "./dictionary/En.json"
+      },
+      "with": {
+      }
+    }
+  },
+  "rus": {
+    "$merge": {
+      "source": {
+        "$import": "./dictionary/Rus.json"
+      },
+      "with": {
+      }
+    }
+  },
+  "contactMe": {
+    "$merge": {
+      "source": {
+        "$import": "./formConfigs/contactMe.json"
+      },
+      "with": {
+      }
+    }
+  },
+  "myResumeEn": {
+    "$merge": {
+      "source": {
+        "$import": "./resume/MyResumeEn.json"
+      },
+      "with": {
+      }
+    }
+  },
+  "myResumeRus": {
+    "$merge": {
+      "source": {
+        "$import": "./resume/MyResumeRus.json"
+      },
+      "with": {
+      }
+    }
+  }
+
+}

@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'RegularFont';
+  src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BoldFont';
+  src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ItalicFont';
+  src: url('fonts/OpenSans-Italic.ttf') format('truetype');
+}
+
+body {
+  font-family: RegularFont;
+  margin: 0;
+}
